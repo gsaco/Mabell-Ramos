@@ -1,0 +1,20 @@
+{
+  "siteBase": "/Mabell-Ramos/",
+  "siteOrigin": "https://gsaco.github.io",
+  "receiverEndpoint": null,
+  "turnstileSiteKey": null,
+  "privacyNoticeVersion": null,
+  "privacyApproved": false,
+  "privacy": {
+    "responsible": "Mabel Ramos y Ana Joya Ramos",
+    "contactUrl": "https://www.instagram.com/mabellramos.dulces/",
+    "retention": null
+  },
+  "allowContactPhone": false,
+  "contact": {
+    "whatsapp": null,
+    "instagram": "https://www.instagram.com/mabellramos.dulces/"
+  },
+  "catalogVersion": "catalogo-referencia-2026-09-29",
+  "localPreview": false
+}

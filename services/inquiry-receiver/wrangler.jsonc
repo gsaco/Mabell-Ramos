@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "mabell-ramos-inquiry-receiver",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-09-29",
+  "workers_dev": true,
+  "durable_objects": { "bindings": [{ "name": "INQUIRY_WRITER", "class_name": "InquiryWriter" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["InquiryWriter"] }],
+  "vars": {
+    "RECEIVER_ENABLED": "false",
+    "ALLOWED_ORIGINS": "[\"https://gsaco.github.io\"]",
+    "TURNSTILE_HOSTNAMES": "[\"gsaco.github.io\"]",
+    "GITHUB_REPOSITORY": "",
+    "GITHUB_BRANCH": "main",
+    "PUBLIC_CATALOG_URL": "https://gsaco.github.io/Mabell-Ramos/site/catalog-public.json",
+    "PRIVACY_NOTICE_VERSION": "",
+    "PRIVACY_CONTACT": "",
+    "RETENTION_DAYS": "",
+    "RATE_PER_SOURCE": "6",
+    "RATE_GLOBAL": "60",
+    "RATE_WINDOW_SECONDS": "600"
+  },
+  "observability": { "enabled": false }
+}

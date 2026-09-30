@@ -1,0 +1,32 @@
+export type Occasion = 'disfrutar' | 'regalar' | 'descubrir' | 'evento' | 'otra';
+export type PublicInquiryInput = {
+  schemaVersion: 1; requestId: string;
+  kind: 'product_option' | 'product_general' | 'event' | 'catalog_page';
+  contact: { name: string; method: 'whatsapp' | 'email'; value: string };
+  option?: { id: string; revision: number; quantity: number };
+  catalog?: { version: string; page: number };
+  occasion?: Occasion; requestedDate: string | null; district: string | null;
+  event?: { scope: 'food_only' | 'food_and_service' | 'unsure'; attendees: number | null; time: string | null; interests: ('sweet' | 'savory' | 'drinks' | 'setup' | 'tableware' | 'staff')[] };
+  message: string; source: { page: '/' | '/productos/' | '/catering/' | '/catalogo/'; campaignCode?: string };
+  privacyNoticeVersion: string; antiAbuseToken: string; website?: string;
+};
+export type LogicalPublicInquiryInput = Omit<PublicInquiryInput, 'antiAbuseToken' | 'website'>;
+export type AttentionRule = { version: string; responsible: 'Mabel' | 'Ana' | null; timezone: 'America/Lima'; responseHours: number; workDays: number[]; workStart: string; workEnd: string };
+export type OfferSnapshot = { catalogVersion: string; optionId: string; optionRevision: number; name: string; occasion: 'disfrutar' | 'regalar' | 'descubrir'; saleUnit: string; priceCents: number; currency: 'PEN'; quantity: number; items: { productId: string; variantId?: string; quantity: number }[]; presentation: string; deliveryConditions: string; allowedChanges: string };
+export type StoredPublicInquiry = { schemaVersion: 1; requestId: string; receiptId: string; receivedAt: string; contentHash: string; input: LogicalPublicInquiryInput; offerSnapshot: OfferSnapshot | null; attentionRule: AttentionRule | null };
+export type InquiryReceipt = { receiptId: string; receivedAt: string; status: 'received' };
+export class ContractError extends Error { field: string; constructor(message: string, field?: string); }
+export const INPUT_SCHEMA_VERSION: 1;
+export const MAX_REQUEST_BYTES: number;
+export const ALLOWED_SOURCE_PAGES: string[];
+export const UUID_RE: RegExp;
+export function validatePublicInquiryInput(value: unknown, options?: { includeAntiAbuse?: boolean }): PublicInquiryInput;
+export function logicalInput(input: PublicInquiryInput | LogicalPublicInquiryInput): LogicalPublicInquiryInput;
+export function canonicalJSON(value: unknown): string;
+export function hashLogicalInput(input: PublicInquiryInput | LogicalPublicInquiryInput): Promise<string>;
+export function inboxPath(requestId: string): string;
+export function receiptFor(requestId: string): string;
+export function validateAttentionRule(value: unknown): AttentionRule | null;
+export function validateOfferSnapshot(value: unknown): OfferSnapshot | null;
+export function validateStoredPublicInquiry(value: unknown): StoredPublicInquiry;
+export function verifyStoredPublicInquiry(value: unknown): Promise<StoredPublicInquiry>;

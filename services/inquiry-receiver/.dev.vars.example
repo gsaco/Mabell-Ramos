@@ -1,0 +1,15 @@
+# Server-only configuration. Copy to .dev.vars; never add real secrets to Git.
+RECEIVER_ENABLED=false
+ALLOWED_ORIGINS=["https://gsaco.github.io"]
+TURNSTILE_HOSTNAMES=["gsaco.github.io"]
+GITHUB_REPOSITORY=
+GITHUB_BRANCH=main
+GITHUB_TOKEN=
+TURNSTILE_SECRET=
+RATE_HASH_SECRET=
+PUBLIC_CATALOG_URL=https://gsaco.github.io/Mabell-Ramos/site/catalog-public.json
+PRIVACY_NOTICE_VERSION=
+PRIVACY_CONTACT=
+RETENTION_DAYS=
+# Optional complete rule ONLY after agreed by Mabel and Ana:
+# ATTENTION_RULE_JSON={"version":"attention-v1","responsible":"Ana","timezone":"America/Lima","responseHours":24,"workDays":[1,2,3,4,5],"workStart":"09:00","workEnd":"18:00"}

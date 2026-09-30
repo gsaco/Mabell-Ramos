@@ -1,0 +1,37 @@
+{
+  "referenceProducts": [
+    {
+      "id": "chocotejas",
+      "name": "Chocotejas",
+      "description": "Chocolate y rellenos para conocer nuestra propuesta, desde lúcuma hasta frejol colado y pallar.",
+      "detail": "Consulta el relleno y la cobertura de chocolate que prefieres. El porcentaje de cacao corresponde al chocolate utilizado, no al producto completo.",
+      "page": 2,
+      "image": "chocotejas"
+    },
+    {
+      "id": "alfajores",
+      "name": "Alfajores",
+      "description": "Preparaciones clásicas y variantes de masa, como cañihua y chocochips.",
+      "detail": "La masa, el relleno, la forma y el tamaño son características distintas. Cuéntanos qué preparación buscas para acordar la cantidad y la presentación.",
+      "page": 3,
+      "image": "alfajores"
+    },
+    {
+      "id": "bombones",
+      "name": "Bombones",
+      "description": "Pequeñas preparaciones de chocolate con diferentes rellenos y acabados.",
+      "detail": "Revisa las preparaciones del catálogo y consulta los sabores, cantidades y acabados antes de encargar.",
+      "page": 4,
+      "image": null
+    },
+    {
+      "id": "trufas-donas",
+      "name": "Trufas y donas",
+      "description": "Otras preparaciones para completar tu selección de dulces.",
+      "detail": "Las recetas, coberturas y tamaños se coordinan según la preparación elegida. Su disponibilidad se confirma al consultar.",
+      "page": 5,
+      "image": null
+    }
+  ],
+  "videos": []
+}

@@ -1,0 +1,13 @@
+export const ID = 'adf9c8d1-a8c2-4ce1-9ee0-351a33d6297d';
+export const OTHER_ID = '45d4d4bc-e47a-47a7-8ac6-988741e79193';
+export const makeInput = (patch = {}) => ({ schemaVersion: 1, requestId: ID, kind: 'product_general', contact: { name: 'María Ana Joya', method: 'email', value: 'maria@example.test' }, requestedDate: '2026-10-10', district: 'Magdalena del Mar', message: 'Quisiera conocer los rellenos de pallar y ají.', source: { page: '/productos/' }, privacyNoticeVersion: 'privacy-v1', antiAbuseToken: 'server-verified-token', website: '', ...patch });
+export const catalog = { schemaVersion: 1, version: 'catalog-v1', products: [{ id: 'pallar', validVariants: ['cacao-70'] }], options: [{ id: 'selection', revision: 2, name: 'Selección de sabores', occasion: 'descubrir', saleUnit: 'caja', priceCents: 4000, currency: 'PEN', items: [{ productId: 'pallar', variantId: 'cacao-70', quantity: 6 }], presentation: 'Caja de seis piezas', deliveryConditions: 'Entrega por coordinar', allowedChanges: 'Por confirmar', availability: 'on_request' }], catalog: { version: 'document-v1', pages: 14 } };
+export const makeOptionInput = (patch = {}) => makeInput({ kind: 'product_option', option: { id: 'selection', revision: 2, quantity: 2 }, ...patch });
+export class MemoryRepository {
+  constructor() { this.records = new Map(); this.creates = 0; this.reads = 0; this.private = true; this.failAfterCreate = false; }
+  async assertPrivate() { if (!this.private) throw new Error('Repository must be private'); }
+  async read(path) { this.reads++; return structuredClone(this.records.get(path) ?? null); }
+  async create(path, record) { this.creates++; if (this.records.has(path)) { const error = new Error('Conflict'); error.upstreamStatus = 409; throw error; } this.records.set(path, structuredClone(record)); if (this.failAfterCreate) throw new Error('Lost create response'); }
+}
+export const baseDeps = repository => ({ repository, verifyAntiAbuse: async () => true, loadCatalog: async () => structuredClone(catalog), rateLimiter: { check: async () => {} }, rateKey: 'hashed-source', privacyNoticeVersion: 'privacy-v1', now: () => new Date('2026-09-29T18:00:00.000Z'), sleep: async () => {} });
+export const env = { RECEIVER_ENABLED: 'true', ALLOWED_ORIGINS: '["https://gsaco.github.io"]', TURNSTILE_HOSTNAMES: '["gsaco.github.io"]', GITHUB_REPOSITORY: 'owner/private-inbox', GITHUB_TOKEN: 'not-a-real-secret-but-long-enough', GITHUB_BRANCH: 'main', TURNSTILE_SECRET: 'not-a-real-turnstile-secret', RATE_HASH_SECRET: 'not-a-real-hmac-secret-but-more-than-thirty-two', PUBLIC_CATALOG_JSON: JSON.stringify(catalog), PRIVACY_NOTICE_VERSION: 'privacy-v1', PRIVACY_CONTACT: 'privacy@example.test', RETENTION_DAYS: '90' };

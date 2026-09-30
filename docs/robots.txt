@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gsaco.github.io/Mabell-Ramos/sitemap.xml

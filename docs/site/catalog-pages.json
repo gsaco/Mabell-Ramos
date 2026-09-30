@@ -1,0 +1,344 @@
+[
+  {
+    "page": 1,
+    "title": "Portada · Catálogo 2026",
+    "sections": [
+      {
+        "heading": "Mabell Ramos",
+        "rows": [
+          "Pastelería fina con raíz afroperuana.",
+          "Dulces con raíz, hechos para compartir.",
+          "Dulces · Chocolates · Catering.",
+          "Sabores de nuestra casa."
+        ]
+      }
+    ],
+    "notes": [],
+    "source": "docs/assets/previews/pagina-01-1280.webp"
+  },
+  {
+    "page": 2,
+    "title": "Chocotejas",
+    "sections": [
+      {
+        "heading": "Precios por unidad · 18% cacao / 40% cacao",
+        "rows": [
+          "Lúcuma: S/ 3.50 con 18% cacao; S/ 8.00 con 40% cacao.",
+          "Maracuyá: S/ 3.50 con 18% cacao; S/ 8.00 con 40% cacao.",
+          "Pistachos y frambuesa: S/ 3.50 con 18% cacao; S/ 8.00 con 40% cacao.",
+          "Pecanas: S/ 3.50 con 18% cacao; S/ 8.00 con 40% cacao.",
+          "Higos: S/ 3.00 con 18% cacao; S/ 6.00 con 40% cacao.",
+          "Pasas: S/ 3.00 con 18% cacao; S/ 6.00 con 40% cacao.",
+          "Guindón: S/ 3.00 con 18% cacao; S/ 6.00 con 40% cacao.",
+          "Manjar de pallar: S/ 3.50 con 18% cacao; S/ 8.00 con 40% cacao.",
+          "Frejol colado: S/ 3.50 con 18% cacao; S/ 8.00 con 40% cacao.",
+          "Ají: S/ 4.00 con 18% cacao; S/ 8.00 con 40% cacao.",
+          "Pie de limón: S/ 3.50 con 18% cacao; S/ 8.00 con 40% cacao.",
+          "Chocomaní: S/ 3.50 con 18% cacao; S/ 8.00 con 40% cacao.",
+          "Café: S/ 3.50 con 18% cacao; S/ 8.00 con 40% cacao."
+        ]
+      },
+      {
+        "heading": "Toque especial",
+        "rows": ["Flores comestibles: consultar."]
+      }
+    ],
+    "notes": [
+      "Elige tu sabor y porcentaje de cacao.",
+      "18% y 40% indican el contenido de cacao del chocolate."
+    ],
+    "source": "docs/assets/previews/pagina-02-1280.webp"
+  },
+  {
+    "page": 3,
+    "title": "Alfajores",
+    "sections": [
+      {
+        "heading": "Preparaciones · Precio: consultar",
+        "rows": [
+          "Clásicos.",
+          "Cañihua.",
+          "Manjar de lúcuma.",
+          "Chocochips.",
+          "Pistacho con arándano.",
+          "Pistacho con arándano y manjar de pistacho.",
+          "Anís y canela."
+        ]
+      },
+      {
+        "heading": "Formas",
+        "rows": ["Circulares y corazón."]
+      },
+      {
+        "heading": "Rellenos",
+        "rows": ["Clásico, lúcuma, pistacho y fudge."]
+      }
+    ],
+    "notes": [
+      "Un clásico, muchas posibilidades.",
+      "Consulta las combinaciones disponibles."
+    ],
+    "source": "docs/assets/previews/pagina-03-1280.webp"
+  },
+  {
+    "page": 4,
+    "title": "Bombones",
+    "sections": [
+      {
+        "heading": "Sabores",
+        "rows": [
+          "Lúcuma.",
+          "Kiwi deshidratado.",
+          "Manjar blanco.",
+          "Frutos secos.",
+          "Arándano."
+        ]
+      },
+      {
+        "heading": "Diseños y acabados",
+        "rows": [
+          "Técnica de mármol.",
+          "Corazón.",
+          "Dorados.",
+          "Flores.",
+          "Papel oro."
+        ]
+      }
+    ],
+    "notes": [
+      "Pequeños detalles de chocolate.",
+      "Precio: consultar según selección."
+    ],
+    "source": "docs/assets/previews/pagina-04-1280.webp"
+  },
+  {
+    "page": 5,
+    "title": "Trufas y donas de chocolate",
+    "sections": [
+      {
+        "heading": "Trufas",
+        "rows": ["Pecanas.", "Pecanas y hojuelas de avena."]
+      },
+      {
+        "heading": "Donas de chocolate",
+        "rows": ["Grandes y pequeñas.", "También para cumpleaños."]
+      },
+      {
+        "heading": "Rellenos",
+        "rows": ["Manjar.", "Mermelada de fresa.", "Mermelada de arándanos."]
+      },
+      {
+        "heading": "Coberturas",
+        "rows": [
+          "Chocolate bitter.",
+          "Chocolate de leche.",
+          "Chocolate blanco.",
+          "Chocolate de colores."
+        ]
+      }
+    ],
+    "notes": [
+      "Para darte un gusto.",
+      "Pequeños placeres, grandes momentos.",
+      "Precio: consultar."
+    ],
+    "source": "docs/assets/previews/pagina-05-1280.webp"
+  },
+  {
+    "page": 6,
+    "title": "Paquetes de regalo",
+    "sections": [
+      {
+        "heading": "Un detalle para regalar · Paquetes para compartir",
+        "rows": [
+          "Chocotejas · 4 o 5 unidades: consultar.",
+          "Chocotejas · 12 o 15 unidades: consultar.",
+          "Alfajores · 12 o 15 unidades: consultar.",
+          "Cajita de alfajores y chocotejas: consultar composición y precio."
+        ]
+      }
+    ],
+    "notes": [
+      "Consulta sabores y presentaciones disponibles.",
+      "Presentación visual referencial."
+    ],
+    "source": "docs/assets/previews/pagina-06-1280.webp"
+  },
+  {
+    "page": 7,
+    "title": "Dulces bocados para tu evento",
+    "sections": [
+      {
+        "heading": "Precios por 100 unidades",
+        "rows": [
+          "Chocotejas bocadito · Presentación pequeña: S/ 115.",
+          "Tartaletas · Fresa, arándano o pie de limón: S/ 110.",
+          "Trufas bocadito · Presentación pequeña: S/ 100.",
+          "Cheesecake · Arándano o fresa: S/ 95."
+        ]
+      }
+    ],
+    "notes": ["Consulta disponibilidad y combinaciones."],
+    "source": "docs/assets/previews/pagina-07-1280.webp"
+  },
+  {
+    "page": 8,
+    "title": "Catering dulce · Más para tu mesa",
+    "sections": [
+      {
+        "heading": "Precios por 100 unidades",
+        "rows": [
+          "Mini pie de limón: S/ 110.",
+          "Mini pie de maracuyá: S/ 110.",
+          "Pie de Oreo: consultar.",
+          "Alfajores: S/ 80."
+        ]
+      },
+      {
+        "heading": "Mix personalizable",
+        "rows": [
+          "Mínimo 25 unidades. Opciones de 50 o 100 unidades.",
+          "Cotiza según tu selección."
+        ]
+      }
+    ],
+    "notes": [],
+    "source": "docs/assets/previews/pagina-08-1280.webp"
+  },
+  {
+    "page": 9,
+    "title": "Catering salado",
+    "sections": [
+      {
+        "heading": "Precios por 100 unidades",
+        "rows": [
+          "Mini pizzas: S/ 105.",
+          "Petit pan de pollo: S/ 105.",
+          "Mini hamburguesas de carne: S/ 105."
+        ]
+      },
+      {
+        "heading": "Mini pizzas · Variedades",
+        "rows": [
+          "Clásica / Americana.",
+          "Hawaiana.",
+          "3 quesos.",
+          "Pepperoni.",
+          "Cabanosi."
+        ]
+      }
+    ],
+    "notes": [
+      "Sabores para compartir.",
+      "Completa tu selección con bocaditos dulces y bebidas."
+    ],
+    "source": "docs/assets/previews/pagina-09-1280.webp"
+  },
+  {
+    "page": 10,
+    "title": "Arma tu selección · Catering salado",
+    "sections": [
+      {
+        "heading": "Precios por 100 unidades",
+        "rows": [
+          "Mini causitas de pollo · Cuchareable o en vasito: S/ 125.",
+          "Triples veganos: S/ 125.",
+          "Triples: S/ 100. Consulta su composición.",
+          "Tartaleta de ají de pollo: S/ 125."
+        ]
+      }
+    ],
+    "notes": ["Indícanos la cantidad y fecha de tu evento."],
+    "source": "docs/assets/previews/pagina-10-1280.webp"
+  },
+  {
+    "page": 11,
+    "title": "Panes personales",
+    "sections": [
+      {
+        "heading": "Porciones personales · Precios por 100 unidades",
+        "rows": [
+          "Triples de aceituna, palta y pollo: S/ 800.",
+          "Croissants de pollo: S/ 600.",
+          "Triples de jamón y pollo: S/ 800.",
+          "Hamburguesa de carne: S/ 1.000."
+        ]
+      }
+    ],
+    "notes": [
+      "Para reuniones con más apetito.",
+      "Consulta disponibilidad para tu reunión."
+    ],
+    "source": "docs/assets/previews/pagina-11-1280.webp"
+  },
+  {
+    "page": 12,
+    "title": "Bebidas",
+    "sections": [
+      {
+        "heading": "Completa tu mesa",
+        "rows": [
+          "Café: consultar.",
+          "Chichas: consultar.",
+          "Maracuyá: consultar."
+        ]
+      }
+    ],
+    "notes": [
+      "Presentación en botella.",
+      "Consulta tamaños y precios.",
+      "Presentación visual referencial."
+    ],
+    "source": "docs/assets/previews/pagina-12-1280.webp"
+  },
+  {
+    "page": 13,
+    "title": "Especiales por encargo",
+    "sections": [
+      {
+        "heading": "Para celebrar a tu manera",
+        "rows": ["Cupcakes: S/ 7 por unidad.", "Pops: S/ 5 por unidad."]
+      }
+    ],
+    "notes": [
+      "Precios referenciales.",
+      "Confirma diseño, presentación y precio al cotizar."
+    ],
+    "source": "docs/assets/previews/pagina-13-1280.webp"
+  },
+  {
+    "page": 14,
+    "title": "Cómo hacer tu pedido",
+    "sections": [
+      {
+        "heading": "Hagamos tu próxima celebración más dulce",
+        "rows": [
+          "Pequeños placeres de gran identidad.",
+          "Momentos especiales, mejores juntos."
+        ]
+      },
+      {
+        "heading": "¿Cómo hacer tu pedido?",
+        "rows": [
+          "01 · Elige tus productos y sabores.",
+          "02 · Indica la cantidad y fecha de tu evento.",
+          "03 · Consulta disponibilidad, entrega y cotización."
+        ]
+      },
+      {
+        "heading": "Conversemos",
+        "rows": [
+          "Instagram y TikTok: @mabellramos.dulces.",
+          "Facebook: mabellramos00."
+        ]
+      }
+    ],
+    "notes": [
+      "Confirma precios y disponibilidad al realizar tu pedido.",
+      "Los precios de catering corresponden a 100 unidades.",
+      "En chocotejas, 18% y 40% indican el porcentaje de cacao.",
+      "Imágenes y presentaciones referenciales."
+    ],
+    "source": "docs/assets/previews/pagina-14-1280.webp"
+  }
+]

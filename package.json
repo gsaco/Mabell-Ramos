@@ -1,0 +1,23 @@
+{
+  "name": "mabell-ramos-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build-site.mjs",
+    "dev": "node tools/dev-server.mjs",
+    "test": "node --test tests/site/*.test.mjs tests/receiver/*.test.mjs",
+    "test:e2e": "node tools/build-fixture.mjs && playwright test",
+    "check": "npm run build && npm test && npm run test:e2e",
+    "offer:import": "node tools/import-offer.mjs",
+    "format:check": "prettier --check tools/*.mjs site-src/scripts/*.{js,mjs} site-src/styles/site.css tests/site/*.mjs tests/e2e/*.mjs playwright.config.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
+    "@playwright/test": "^1.58.2",
+    "prettier": "^3.9.9"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
