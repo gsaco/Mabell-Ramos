@@ -1,0 +1,416 @@
+{
+  "encoding": "WebP lossless",
+  "widths": [
+    640,
+    960,
+    1280
+  ],
+  "pages": [
+    {
+      "original": "pagina-01.webp",
+      "dimensions": [
+        4216,
+        5972
+      ],
+      "bytes": 18991724,
+      "sha256": "cc7df5c1d21530d80a23a58d73d0ceb1618f50df89211ef019c1fefd97729351",
+      "previews": [
+        {
+          "file": "pagina-01-640.webp",
+          "width": 640,
+          "height": 907,
+          "bytes": 651780
+        },
+        {
+          "file": "pagina-01-960.webp",
+          "width": 960,
+          "height": 1360,
+          "bytes": 1367692
+        },
+        {
+          "file": "pagina-01-1280.webp",
+          "width": 1280,
+          "height": 1813,
+          "bytes": 2290696
+        }
+      ]
+    },
+    {
+      "original": "pagina-02.webp",
+      "dimensions": [
+        4220,
+        5964
+      ],
+      "bytes": 17495662,
+      "sha256": "a474e89308672c185e996602148fe2df3797127cb2e1458bcf0960fe724f2588",
+      "previews": [
+        {
+          "file": "pagina-02-640.webp",
+          "width": 640,
+          "height": 904,
+          "bytes": 545992
+        },
+        {
+          "file": "pagina-02-960.webp",
+          "width": 960,
+          "height": 1357,
+          "bytes": 1153700
+        },
+        {
+          "file": "pagina-02-1280.webp",
+          "width": 1280,
+          "height": 1809,
+          "bytes": 1969280
+        }
+      ]
+    },
+    {
+      "original": "pagina-03.webp",
+      "dimensions": [
+        4216,
+        5968
+      ],
+      "bytes": 18604454,
+      "sha256": "16a2af2e234aba5a388414faa1e9f4b2dfb94337936905d5fc1500ccb1e1c53f",
+      "previews": [
+        {
+          "file": "pagina-03-640.webp",
+          "width": 640,
+          "height": 906,
+          "bytes": 588836
+        },
+        {
+          "file": "pagina-03-960.webp",
+          "width": 960,
+          "height": 1359,
+          "bytes": 1258684
+        },
+        {
+          "file": "pagina-03-1280.webp",
+          "width": 1280,
+          "height": 1812,
+          "bytes": 2147728
+        }
+      ]
+    },
+    {
+      "original": "pagina-04.webp",
+      "dimensions": [
+        4216,
+        5968
+      ],
+      "bytes": 18331496,
+      "sha256": "e95f2823cdf182a4d92b668c186f1917705957ba31200707993d1bb386cb73f9",
+      "previews": [
+        {
+          "file": "pagina-04-640.webp",
+          "width": 640,
+          "height": 906,
+          "bytes": 589784
+        },
+        {
+          "file": "pagina-04-960.webp",
+          "width": 960,
+          "height": 1359,
+          "bytes": 1251202
+        },
+        {
+          "file": "pagina-04-1280.webp",
+          "width": 1280,
+          "height": 1812,
+          "bytes": 2118348
+        }
+      ]
+    },
+    {
+      "original": "pagina-05.webp",
+      "dimensions": [
+        4216,
+        5968
+      ],
+      "bytes": 18589250,
+      "sha256": "9ede7f05fce0c9cde7408e19364733d447d0661ac349773cb107f931c66125cb",
+      "previews": [
+        {
+          "file": "pagina-05-640.webp",
+          "width": 640,
+          "height": 906,
+          "bytes": 577662
+        },
+        {
+          "file": "pagina-05-960.webp",
+          "width": 960,
+          "height": 1359,
+          "bytes": 1239410
+        },
+        {
+          "file": "pagina-05-1280.webp",
+          "width": 1280,
+          "height": 1812,
+          "bytes": 2117314
+        }
+      ]
+    },
+    {
+      "original": "pagina-06.webp",
+      "dimensions": [
+        4216,
+        5968
+      ],
+      "bytes": 16796742,
+      "sha256": "5a97268f0bd08274835c8dd1645e63e6136c75a42deb58eda7d2b997d60a6b51",
+      "previews": [
+        {
+          "file": "pagina-06-640.webp",
+          "width": 640,
+          "height": 906,
+          "bytes": 527732
+        },
+        {
+          "file": "pagina-06-960.webp",
+          "width": 960,
+          "height": 1359,
+          "bytes": 1124068
+        },
+        {
+          "file": "pagina-06-1280.webp",
+          "width": 1280,
+          "height": 1812,
+          "bytes": 1922158
+        }
+      ]
+    },
+    {
+      "original": "pagina-07.webp",
+      "dimensions": [
+        4216,
+        5968
+      ],
+      "bytes": 18391674,
+      "sha256": "b2d7df01348256e610675a58304bd5295d2aebd31c965746a4efd022fdd7ae46",
+      "previews": [
+        {
+          "file": "pagina-07-640.webp",
+          "width": 640,
+          "height": 906,
+          "bytes": 586140
+        },
+        {
+          "file": "pagina-07-960.webp",
+          "width": 960,
+          "height": 1359,
+          "bytes": 1244422
+        },
+        {
+          "file": "pagina-07-1280.webp",
+          "width": 1280,
+          "height": 1812,
+          "bytes": 2116378
+        }
+      ]
+    },
+    {
+      "original": "pagina-08.webp",
+      "dimensions": [
+        4216,
+        5968
+      ],
+      "bytes": 17797872,
+      "sha256": "08ee383830e4688f54a4ebb8926c28a27d2e899996ed2469a3f21c1b255c4d98",
+      "previews": [
+        {
+          "file": "pagina-08-640.webp",
+          "width": 640,
+          "height": 906,
+          "bytes": 540876
+        },
+        {
+          "file": "pagina-08-960.webp",
+          "width": 960,
+          "height": 1359,
+          "bytes": 1170564
+        },
+        {
+          "file": "pagina-08-1280.webp",
+          "width": 1280,
+          "height": 1812,
+          "bytes": 2011770
+        }
+      ]
+    },
+    {
+      "original": "pagina-09.webp",
+      "dimensions": [
+        4216,
+        5972
+      ],
+      "bytes": 19775884,
+      "sha256": "d527d6db9c1526f4b910d1ac05a3ed8cc3e3fa1f2afbcb6097900fc95b906a4c",
+      "previews": [
+        {
+          "file": "pagina-09-640.webp",
+          "width": 640,
+          "height": 907,
+          "bytes": 666004
+        },
+        {
+          "file": "pagina-09-960.webp",
+          "width": 960,
+          "height": 1360,
+          "bytes": 1403166
+        },
+        {
+          "file": "pagina-09-1280.webp",
+          "width": 1280,
+          "height": 1813,
+          "bytes": 2350948
+        }
+      ]
+    },
+    {
+      "original": "pagina-10.webp",
+      "dimensions": [
+        4216,
+        5968
+      ],
+      "bytes": 17889016,
+      "sha256": "2455b8bd50715078b3ce75e72f42019507d04c92604d33b112df7c42f16862df",
+      "previews": [
+        {
+          "file": "pagina-10-640.webp",
+          "width": 640,
+          "height": 906,
+          "bytes": 581686
+        },
+        {
+          "file": "pagina-10-960.webp",
+          "width": 960,
+          "height": 1359,
+          "bytes": 1233292
+        },
+        {
+          "file": "pagina-10-1280.webp",
+          "width": 1280,
+          "height": 1812,
+          "bytes": 2093984
+        }
+      ]
+    },
+    {
+      "original": "pagina-11.webp",
+      "dimensions": [
+        4216,
+        5968
+      ],
+      "bytes": 18319574,
+      "sha256": "0ba219ac06c73b29bc3ab1c2170906034379cfbd39ad71e6e8273ace81ee0fa2",
+      "previews": [
+        {
+          "file": "pagina-11-640.webp",
+          "width": 640,
+          "height": 906,
+          "bytes": 570020
+        },
+        {
+          "file": "pagina-11-960.webp",
+          "width": 960,
+          "height": 1359,
+          "bytes": 1224532
+        },
+        {
+          "file": "pagina-11-1280.webp",
+          "width": 1280,
+          "height": 1812,
+          "bytes": 2091932
+        }
+      ]
+    },
+    {
+      "original": "pagina-12.webp",
+      "dimensions": [
+        4216,
+        5968
+      ],
+      "bytes": 16298218,
+      "sha256": "8071bcd846db72eb5fa09111debde5507412e3a79c698144e553d01a41e9e2d6",
+      "previews": [
+        {
+          "file": "pagina-12-640.webp",
+          "width": 640,
+          "height": 906,
+          "bytes": 478062
+        },
+        {
+          "file": "pagina-12-960.webp",
+          "width": 960,
+          "height": 1359,
+          "bytes": 1038384
+        },
+        {
+          "file": "pagina-12-1280.webp",
+          "width": 1280,
+          "height": 1812,
+          "bytes": 1804522
+        }
+      ]
+    },
+    {
+      "original": "pagina-13.webp",
+      "dimensions": [
+        4216,
+        5968
+      ],
+      "bytes": 17783732,
+      "sha256": "2b15d349d63670b60af2800211165a59c207e718539005616b40a246c7daea75",
+      "previews": [
+        {
+          "file": "pagina-13-640.webp",
+          "width": 640,
+          "height": 906,
+          "bytes": 564816
+        },
+        {
+          "file": "pagina-13-960.webp",
+          "width": 960,
+          "height": 1359,
+          "bytes": 1196546
+        },
+        {
+          "file": "pagina-13-1280.webp",
+          "width": 1280,
+          "height": 1812,
+          "bytes": 2029102
+        }
+      ]
+    },
+    {
+      "original": "pagina-14.webp",
+      "dimensions": [
+        4216,
+        5972
+      ],
+      "bytes": 18654674,
+      "sha256": "d4f1c9ce51da738f0d9ab2e1c24c4214d4668539506a8d8b1c80f1bbc3ed5619",
+      "previews": [
+        {
+          "file": "pagina-14-640.webp",
+          "width": 640,
+          "height": 907,
+          "bytes": 608624
+        },
+        {
+          "file": "pagina-14-960.webp",
+          "width": 960,
+          "height": 1360,
+          "bytes": 1286734
+        },
+        {
+          "file": "pagina-14-1280.webp",
+          "width": 1280,
+          "height": 1813,
+          "bytes": 2177336
+        }
+      ]
+    }
+  ]
+}
