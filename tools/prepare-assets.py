@@ -14,7 +14,7 @@ import json
 import shutil
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 REPO = Path(__file__).resolve().parents[1]
 SOURCE = REPO / "assets-source" / "originals"
@@ -39,7 +39,7 @@ def register(path: Path, *, kind: str, source: str, alt: str = "", use: str,
         "bytes": path.stat().st_size, "sha256": sha256(path), "notes": notes,
         **extra,
     }
-    if path.suffix.lower() in {".png", ".webp", ".jpg"}:
+    if path.suffix.lower() in {".png", ".webp", ".jpg", ".avif"}:
         with Image.open(path) as image:
             entry.update(width=image.width, height=image.height,
                          transparency=image.mode in {"RGBA", "LA"})
@@ -60,7 +60,13 @@ def responsive_image(stem: str, widths: list[int], *, alt: str) -> None:
                        exact=True, minimize_size=False)
             register(destination, kind="illustration-reference", source=str(path.relative_to(REPO)),
                      alt=alt, use="editorial decoration with visible reference caption",
-                     notes="Previously generated/recomposed illustration. Not a verified photograph or proof of package contents.",
+                     notes="Built-in image generation, catalogue-inspired editorial series v2. Not a verified photograph or proof of package contents. Native master preserved; separate responsive derivative.",
+                     source_sha256=sha256(path))
+            avif = OUT / f"{stem}-{width}.avif"
+            image.save(avif, "AVIF", quality=85, speed=6)
+            register(avif, kind="illustration-reference", source=str(path.relative_to(REPO)),
+                     alt=alt, use="high-quality responsive editorial image; WebP fallback retained",
+                     notes="Separate AVIF derivative at quality 85. Native PNG master remains unchanged. Not a verified merchandise photograph.",
                      source_sha256=sha256(path))
 
 
@@ -223,13 +229,12 @@ def fair_photo() -> None:
 
 def social_image(logo: Image.Image) -> None:
     """Compose an accurate share card with native text and reference illustration."""
-    scale = 2
+    scale = 1
     image = Image.new("RGB", (1200 * scale, 630 * scale), CANVAS)
-    hero = Image.open(SOURCE / "hero-editorial.png").convert("RGB")
-    # Resize-to-fit and crop the existing illustration; no invented products.
-    factor = (630 * scale) / hero.height
-    hero = hero.resize((round(hero.width * factor), 630 * scale), Image.Resampling.LANCZOS)
-    image.paste(hero.crop((hero.width-620*scale, 0, hero.width, 630*scale)), (580*scale, 0))
+    hero = Image.open(SOURCE / "hero-editorial-v2.png").convert("RGB")
+    # A separate share thumbnail, fitted below native dimensions without upscaling.
+    hero = ImageOps.fit(hero, (620, 630), Image.Resampling.LANCZOS, centering=(.5, .65))
+    image.paste(hero, (580, 0))
     draw = ImageDraw.Draw(image)
     draw.rectangle((0, 0, 580*scale, 630*scale), fill=CANVAS)
     badge = logo.copy()
@@ -243,9 +248,9 @@ def social_image(logo: Image.Image) -> None:
     draw.text((48*scale, 505*scale), "Mabell Ramos · Catálogo y catering", font=small, fill=INK)
     draw.text((48*scale, 551*scale), "Ilustración editorial de referencia", font=small, fill="#6B5B73")
     image = image.resize((1200, 630), Image.Resampling.LANCZOS)
-    destination = OUT / "social-inicio.jpg"
+    destination = OUT / "social-inicio-v2.jpg"
     image.save(destination, "JPEG", quality=95, subsampling=0, optimize=True)
-    register(destination, kind="editorial-composition-reference", source="assets-source/originals/hero-editorial.png + original logo crop",
+    register(destination, kind="editorial-composition-reference", source="assets-source/originals/hero-editorial-v2.png + original logo crop",
              alt="Mabell Ramos: dulces para disfrutar, regalar y descubrir", use="Open Graph share image",
              notes="Native typesetting with original mark. Illustration is explicitly identified; no price or package promise.")
 
@@ -253,13 +258,12 @@ def social_image(logo: Image.Image) -> None:
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     VECTORS.mkdir(parents=True, exist_ok=True)
-    for stem, widths, alt in [
-        ("hero-editorial", [640, 960, 1280, 1600], "Ilustración editorial de chocotejas y alfajores sobre un plato lavanda"),
-        ("chocotejas", [480, 800], "Ilustración de referencia de una chocoteja abierta y otra entera"),
-        ("alfajores", [480, 800], "Ilustración de referencia de tres alfajores"),
-        ("regalo", [480, 800], "Ilustración de referencia de una caja de dulces; contenido y empaque por confirmar"),
-    ]:
-        responsive_image(stem, widths, alt=alt)
+    imagery = json.loads((REPO / "site-src/content/editorial-images.json").read_text())
+    for spec in imagery.values():
+        with Image.open(SOURCE / f'{spec["stem"]}.png') as master:
+            if master.size != (spec["width"], spec["height"]):
+                raise ValueError(f'Image metadata differs from native master: {spec["stem"]}')
+        responsive_image(spec["stem"], spec["widths"], alt=spec["alt"])
     logo = authentic_logo()
     fonts()
     svg_assets()

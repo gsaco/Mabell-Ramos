@@ -22,7 +22,7 @@
       "description": "Pequeñas preparaciones de chocolate con diferentes rellenos y acabados.",
       "detail": "Revisa las preparaciones del catálogo y consulta los sabores, cantidades y acabados antes de encargar.",
       "page": 4,
-      "image": null
+      "image": "bombones"
     },
     {
       "id": "trufas-donas",
@@ -30,7 +30,7 @@
       "description": "Otras preparaciones para completar tu selección de dulces.",
       "detail": "Las recetas, coberturas y tamaños se coordinan según la preparación elegida. Su disponibilidad se confirma al consultar.",
       "page": 5,
-      "image": null
+      "image": "trufas-donas"
     }
   ],
   "videos": []

@@ -1,0 +1,44 @@
+{
+  "hero-editorial": {
+    "stem": "hero-editorial-v2",
+    "width": 1122,
+    "height": 1402,
+    "widths": [640, 800, 960, 1122],
+    "alt": "Ilustración editorial de chocotejas y alfajores sobre cerámica lavanda"
+  },
+  "chocotejas": {
+    "stem": "chocotejas-v2",
+    "width": 1254,
+    "height": 1254,
+    "widths": [480, 800, 1200],
+    "alt": "Ilustración referencial de chocotejas ovaladas, una abierta con relleno y pecanas"
+  },
+  "alfajores": {
+    "stem": "alfajores-v2",
+    "width": 1254,
+    "height": 1254,
+    "widths": [480, 800, 1200],
+    "alt": "Ilustración referencial de alfajores circulares y de corazón"
+  },
+  "bombones": {
+    "stem": "bombones-v2",
+    "width": 1254,
+    "height": 1254,
+    "widths": [480, 800, 1200],
+    "alt": "Ilustración referencial de bombones con acabados de mármol, corazón y chocolate"
+  },
+  "trufas-donas": {
+    "stem": "trufas-donas-v2",
+    "width": 1254,
+    "height": 1254,
+    "widths": [480, 800, 1200],
+    "alt": "Ilustración referencial de donas de chocolate y trufas con pecanas y avena"
+  },
+  "regalo": {
+    "stem": "regalo-v2",
+    "width": 1254,
+    "height": 1254,
+    "widths": [480, 800, 1200],
+    "alt": "Ilustración referencial de dulces en una caja kraft con papel lavanda"
+  }
+}

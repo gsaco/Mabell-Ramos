@@ -334,7 +334,7 @@ small,
 .hero-image img {
   aspect-ratio: 4/4.4;
   object-fit: cover;
-  object-position: 80% center;
+  object-position: center 60%;
   border-radius: 160px 160px 12px 12px;
 }
 .hero-image::after {
@@ -1265,8 +1265,8 @@ details[open] > summary {
     margin-top: 28px;
   }
   .hero-image img {
-    aspect-ratio: 4/3;
-    object-position: right;
+    aspect-ratio: 1;
+    object-position: center 60%;
     border-radius: 100px 100px 8px 8px;
   }
   .hero-image::after {
@@ -1626,6 +1626,11 @@ details[open] > summary {
 }
 .option-card .editorial-image img {
   aspect-ratio: 4/3;
+}
+.reference-grid .editorial-image img,
+.gift-story .editorial-image img {
+  aspect-ratio: 1;
+  object-fit: contain;
 }
 .editorial-image figcaption,
 .reference-grid .editorial-image figcaption,

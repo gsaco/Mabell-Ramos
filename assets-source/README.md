@@ -16,3 +16,9 @@ python3 tools/prepare-assets.py
 ```
 
 El proceso conserva los maestros, impide el aumento artificial de resolución y produce WebP de calidad 96, logo WebP sin pérdidas, WOFF2 y una imagen editorial para enlaces compartidos. Las fotografías reales de productos, retratos, catering y videos siguen pendientes: no se fabricaron sustitutos documentales.
+
+## Serie editorial v2
+
+La web usa seis imágenes nuevas generadas con la herramienta integrada de Codex, inspiradas en las páginas 1–6 del catálogo. [Dirección visual, archivos y prompts](SERIE_EDITORIAL_V2.md). Los seis PNG nativos se conservan completos; las imágenes anteriores también permanecen disponibles. Las familias Bombones y Trufas y donas ahora tienen imágenes propias.
+
+Se sirven derivados AVIF de calidad 85 con alternativas WebP de calidad 96. El número de calidad es propio de cada codificador; no implica alterar los maestros o el catálogo. Los teléfonos pequeños seleccionan como máximo 800 px para mantener carga ágil y nitidez; pantallas mayores pueden solicitar 1122 px en portada y 1200 px en las familias. Los recuadros de productos muestran la imagen completa y la portada conserva margen para su encuadre.

@@ -14,6 +14,7 @@ const outRoot = process.env.SITE_OUTPUT_DIR
   ? path.resolve(process.env.SITE_OUTPUT_DIR)
   : path.join(root, "docs");
 const editorial = await json("editorial.json");
+const imagery = await json("editorial-images.json");
 const config = await json("site-config.json");
 if (
   config.receiverEndpoint &&
@@ -94,11 +95,18 @@ const nav = (route) =>
 const footer = () =>
   `<footer class="site-footer"><div class="container footer-grid"><div><a class="footer-brand" href="${url("")}">Mabell Ramos</a><p>Pastelería fina con raíz afroperuana.</p><small>Magdalena del Mar, Lima</small></div><nav aria-label="Pie de página">${link(url("productos/"), "Productos")}${link(url("catering/"), "Catering")}${link(url("catalogo/"), "Catálogo")}</nav><div>${link(ig, "Instagram", "text-link external")}<p>${link(url("privacidad/"), "Privacidad")}</p><small>Conversemos antes de confirmar tu pedido.</small></div></div><div class="container footer-bottom"><span>El cuidado está en los detalles.</span><span>© ${new Date().getFullYear()} Mabell Ramos</span></div></footer>`;
 function picture(name, alt, hero = false) {
-  const widths = hero ? [640, 960, 1280, 1600] : [480, 800];
-  const source = hero
-    ? `<source media="(max-width:480px)" srcset="${[640, 960].map((w) => `${asset(`${name}-${w}.webp`)} ${w}w`).join(", ")}" sizes="calc(100vw - 40px)">`
-    : "";
-  return `<figure class="editorial-image ${hero ? "hero-image" : ""}"><picture>${source}<img src="${asset(`${name}-${widths[0]}.webp`)}" srcset="${widths.map((w) => `${asset(`${name}-${w}.webp`)} ${w}w`).join(", ")}" sizes="${hero ? "(min-width:1256px) 623px, (max-width:760px) calc(100vw - 40px), calc(56vw - 81px)" : "(max-width:760px) calc(100vw - 40px), (min-width:1256px) 365px, 33vw"}" width="${hero ? 1672 : 1024}" height="${hero ? 941 : 1024}" alt="${e(alt)}" ${hero ? 'fetchpriority="high"' : 'loading="lazy" fetchpriority="low"'} decoding="async"></picture><figcaption>Presentación referencial · Ilustración editorial</figcaption></figure>`;
+  const spec = imagery[name];
+  if (!spec) throw new Error(`Unknown editorial image: ${name}`);
+  const widths = spec.widths;
+  const stem = spec.stem;
+  const sizes = hero
+    ? "(min-width:1256px) 623px, (max-width:760px) calc(100vw - 40px), calc(56vw - 81px)"
+    : "(max-width:760px) calc(100vw - 40px), (min-width:1256px) 365px, 33vw";
+  const set = (format, values = widths) =>
+    values.map((w) => `${asset(`${stem}-${w}.${format}`)} ${w}w`).join(", ");
+  const phoneWidths = widths.filter((w) => w <= 800);
+  const source = `<source type="image/avif" media="(max-width:480px)" srcset="${set("avif", phoneWidths)}" sizes="calc(100vw - 40px)"><source type="image/avif" srcset="${set("avif")}" sizes="${sizes}"><source media="(max-width:480px)" srcset="${set("webp", phoneWidths)}" sizes="calc(100vw - 40px)">`;
+  return `<figure class="editorial-image ${hero ? "hero-image" : ""}"><picture>${source}<img src="${asset(`${stem}-${widths[0]}.webp`)}" srcset="${widths.map((w) => `${asset(`${stem}-${w}.webp`)} ${w}w`).join(", ")}" sizes="${hero ? "(min-width:1256px) 623px, (max-width:760px) calc(100vw - 40px), calc(56vw - 81px)" : "(max-width:760px) calc(100vw - 40px), (min-width:1256px) 365px, 33vw"}" width="${spec.width}" height="${spec.height}" alt="${e(alt || spec.alt)}" ${hero ? 'fetchpriority="high"' : 'loading="lazy" fetchpriority="low"'} decoding="async"></picture><figcaption>Presentación referencial · Ilustración editorial</figcaption></figure>`;
 }
 const intro = (eyebrow, title, text) =>
   `<div class="page-intro"><p class="eyebrow">${eyebrow}</p><h1>${title}</h1><p class="lead">${text}</p></div>`;
@@ -317,7 +325,7 @@ function privacy() {
 }
 function layout(route, title, description, body, extraHead = "") {
   const absolute = config.siteOrigin + url(route);
-  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#432653"><meta name="description" content="${e(description)}"><title>${e(title)} · Mabell Ramos</title><link rel="canonical" href="${absolute}"><meta property="og:title" content="${e(title)} · Mabell Ramos"><meta property="og:description" content="${e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="${absolute}"><meta property="og:image" content="${config.siteOrigin + asset("social-inicio.jpg")}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="${asset("favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="${asset("apple-touch-icon.png")}">${extraHead}<link rel="preload" href="${asset("inter-400.woff2")}" as="font" type="font/woff2" crossorigin><link rel="preload" href="${asset("bodoni-moda-600.woff2")}" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="${url("site/site.css")}"><script type="module" src="${url("site/site.js")}"></script></head><body data-page="${route}" data-site-base="${base}">${nav(route)}<main id="contenido">${body}</main>${footer()}</body></html>`;
+  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#432653"><meta name="description" content="${e(description)}"><title>${e(title)} · Mabell Ramos</title><link rel="canonical" href="${absolute}"><meta property="og:title" content="${e(title)} · Mabell Ramos"><meta property="og:description" content="${e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="${absolute}"><meta property="og:image" content="${config.siteOrigin + asset("social-inicio-v2.jpg")}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="${asset("favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="${asset("apple-touch-icon.png")}">${extraHead}<link rel="preload" href="${asset("inter-400.woff2")}" as="font" type="font/woff2" crossorigin><link rel="preload" href="${asset("bodoni-moda-600.woff2")}" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="${url("site/site.css")}"><script type="module" src="${url("site/site.js")}"></script></head><body data-page="${route}" data-site-base="${base}">${nav(route)}<main id="contenido">${body}</main>${footer()}</body></html>`;
 }
 async function save(route, content) {
   const out = path.join(outRoot, route);
