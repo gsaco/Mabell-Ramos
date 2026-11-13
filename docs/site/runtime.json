@@ -11,6 +11,7 @@
     "retention": null
   },
   "allowContactPhone": false,
+  "cateringEmailEnabled": true,
   "contact": {
     "whatsapp": null,
     "instagram": "https://www.instagram.com/mabellramos.dulces/"

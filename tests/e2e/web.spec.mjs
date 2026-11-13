@@ -70,7 +70,7 @@ test("320px and tablet layout keep controls reachable", async ({ page }) => {
       ),
     ).toBeLessThanOrEqual(1);
     await expect(
-      page.getByRole("button", { name: "Enviar consulta" }),
+      page.getByRole("button", { name: "Solicitar cotización", exact: true }),
     ).toBeVisible();
   }
 });
@@ -158,26 +158,29 @@ test("lost reply then rate limit still prevents discarding pending ID", async ({
   await expect(f.locator(".edit-inquiry")).toBeHidden();
   await expect(f.locator("[name=name]")).toBeDisabled();
 });
-test("event food-only submits correct distinct scope and unknown values", async ({
+test("event food-only submits correct scope and unknown values by email", async ({
   page,
 }) => {
   let body;
-  await mockReceive(page, async (r) => {
-    body = r.request().postDataJSON();
-    await r.fulfill({ status: 201, json: receipt(body) });
-  });
+  await page.route(
+    "https://formsubmit.co/ajax/mabellramospe@gmail.com",
+    async (r) => {
+      body = r.request().postDataJSON();
+      await r.fulfill({ json: { success: true } });
+    },
+  );
   await page.goto(local + "catering/");
-  const f = page.locator(".inquiry-form");
-  await fill(f);
-  await f.locator("[name=scope]").selectOption("food_only");
-  await f.locator(".submit-inquiry").click();
-  await expect(f.locator(".receipt-code")).toBeVisible();
-  expect(body.kind).toBe("event");
-  expect(body.occasion).toBe("evento");
-  expect(body.event.scope).toBe("food_only");
-  expect(body.event.attendees).toBeNull();
-  expect(body.requestedDate).toBeNull();
-  expect(body.contact.method).toBe("email");
+  await page.locator("#catering-name").fill("Prueba de interfaz");
+  await page.locator("#catering-phone").fill("912345678");
+  await page.locator("#catering-scope").selectOption("food_only");
+  await page.locator(".catering-submit").click();
+  await expect(page.locator(".catering-status")).toContainText(
+    "Recibimos tu solicitud",
+  );
+  expect(body.Servicio).toBe("Solo alimentos");
+  expect(body.Fecha).toBe("Por definir");
+  expect(body.Personas).toBe("Por definir");
+  expect(body.WhatsApp).toBe("+51912345678");
 });
 test("catalogue-event comment retains context/version without truncation", async ({
   page,
@@ -220,13 +223,17 @@ test("production unavailable never produces a success receipt", async ({
   });
   await page.goto(local + "productos/");
   const f = page.locator(".inquiry-form");
-  await fill(f);
+  await expect(page.locator("[data-product-inquiry]")).toBeHidden();
+  await expect(page.locator(".product-order .external")).toBeVisible();
   await expect(f.locator(".submit-inquiry")).toBeDisabled();
   await expect(f.locator(".form-status")).toContainText(
     "todavía no está activada",
   );
   await expect(f.locator(".receipt-code")).toHaveCount(0);
-  await expect(page.locator('a[href*="wa.me"]')).toHaveCount(0);
+  await expect(page.locator(".site-header .button")).toHaveAttribute(
+    "href",
+    /^https:\/\/wa\.me\/51932666526\?text=/,
+  );
 });
 test("six approved fixture options render, deep link opens and retired cannot submit", async ({
   page,
@@ -359,53 +366,35 @@ test("changed price requires explicit review and preserves typed contact data", 
   expect(bodies[1].option.revision).toBe(2);
   expect(bodies[1].requestId).not.toBe(bodies[0].requestId);
 });
-test("catering choice sets scope and food-only unchecks service requests", async ({
+test("catering choice sets scope and details stay optional", async ({
   page,
 }) => {
   await page.goto(local + "catering/");
-  await page.locator("[data-scope-choice=food_and_service]").click();
-  const f = page.locator(".inquiry-form");
-  await expect(f.locator("[name=scope]")).toHaveValue("food_and_service");
-  await f.locator(".additional > summary").click();
-  await f.locator("[value=setup]").check();
-  await f.locator("[name=scope]").selectOption("food_only");
-  await expect(f.locator("[value=setup]")).not.toBeChecked();
-  await expect(f.locator("[value=setup]")).toBeDisabled();
-  await expect(f.locator("[value=sweet]")).toBeEnabled();
+  await page.locator("#catering-scope").selectOption("food_and_service");
+  await expect(page.locator("#catering-scope")).toHaveValue("food_and_service");
+  await page.locator(".catering-additional summary").click();
+  await expect(page.locator("#catering-email")).not.toHaveAttribute("required");
+  await expect(page.locator("#catering-message")).not.toHaveAttribute(
+    "required",
+  );
+  await page.locator("#catering-scope").selectOption("food_only");
+  await expect(page.locator(".catering-whatsapp")).toHaveAttribute(
+    "href",
+    /Solo%20alimentos/,
+  );
 });
-test("correcting a field keeps food-only service interests disabled", async ({
+test("correcting a catering field retains the chosen scope", async ({
   page,
 }) => {
-  const bodies = [];
-  await mockReceive(page, async (r) => {
-    const b = r.request().postDataJSON();
-    bodies.push(b);
-    await r.fulfill(
-      bodies.length === 1
-        ? {
-            status: 400,
-            json: { error: "invalid_input", field: "contact.name" },
-          }
-        : { status: 201, json: receipt(b) },
-    );
-  });
   await page.goto(local + "catering/");
-  const f = page.locator(".inquiry-form");
-  await fill(f);
-  await f.locator("[name=scope]").selectOption("food_only");
-  await f.locator(".additional > summary").click();
-  await f.locator("[value=savory]").check();
-  await f.locator(".submit-inquiry").click();
-  await expect(f.locator("[name=name]")).toBeEnabled();
-  for (const value of ["setup", "staff", "tableware"]) {
-    await expect(f.locator(`[value=${value}]`)).toBeDisabled();
-    await expect(f.locator(`[value=${value}]`)).not.toBeChecked();
-  }
-  await f.locator("[name=name]").fill("Nombre corregido");
-  await f.locator(".submit-inquiry").click();
-  await expect(f.locator(".receipt-code")).toBeVisible();
-  expect(bodies[1].event.interests).toEqual(["savory"]);
-  expect(bodies[1].occasion).toBe("evento");
+  await page.locator("#catering-scope").selectOption("food_only");
+  await page.locator(".catering-submit").click();
+  await expect(page.locator("#catering-name")).toHaveAttribute(
+    "aria-invalid",
+    "true",
+  );
+  await page.locator("#catering-name").fill("Nombre corregido");
+  await expect(page.locator("#catering-scope")).toHaveValue("food_only");
 });
 test("all fourteen old catalogue fragments retain the corresponding page", async ({
   page,
@@ -460,9 +449,9 @@ test("no JavaScript keeps content and alternative contact and cannot leak form i
   const context = await browser.newContext({ javaScriptEnabled: false });
   const p = await context.newPage();
   await p.goto(local + "productos/");
-  await expect(p.locator("h1")).toContainText("Productos");
+  await expect(p.locator("h1")).toContainText("Chocotejas");
   await expect(p.locator(".submit-inquiry")).toBeDisabled();
-  await expect(p.locator(".inquiry-form .external")).toBeVisible();
+  await expect(p.locator(".product-order .external")).toBeVisible();
   await context.close();
 });
 test("old withdrawn option link explains its state", async ({ page }) => {

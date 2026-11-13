@@ -1,0 +1,313 @@
+body[data-page="catering/"] {
+  --catering-plum: #572749;
+  --catering-deep: #31172f;
+  --catering-lilac: #eadde8;
+  --catering-cream: #fcf8f1;
+  background: var(--catering-cream);
+  color: var(--catering-deep);
+}
+body[data-page="catering/"] .site-header {
+  background: var(--catering-cream);
+}
+body[data-page="catering/"] .site-header .button {
+  background: var(--catering-plum);
+  border-color: var(--catering-plum);
+  border-radius: 999px;
+}
+body[data-page="catering/"]
+  :is(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid #9568ab;
+  outline-offset: 4px;
+}
+.catering-hero {
+  background: var(--catering-plum);
+  color: var(--catering-cream);
+  padding: 52px 0 54px;
+}
+.catering-hero .eyebrow {
+  color: #e1c5db;
+}
+.catering-hero h1 {
+  color: inherit;
+  font:
+    600 clamp(44px, 4.25vw, 62px)/1.1 Bodoni,
+    Georgia,
+    serif;
+  max-width: 1000px;
+  margin: 18px 0;
+  letter-spacing: -1.5px;
+  text-wrap: balance;
+}
+.catering-hero em {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.83em;
+  font-style: normal;
+  color: #ecd6e7;
+  font-weight: inherit;
+}
+.catering-lead {
+  max-width: 630px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #f0e1ec;
+  margin: 0 0 26px;
+}
+.catering-hero .catering-primary {
+  background: var(--catering-cream);
+  border-color: var(--catering-cream);
+  color: var(--catering-plum);
+  border-radius: 999px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .catering-hero .catering-primary:hover {
+    background: #eadde8;
+    border-color: #eadde8;
+    color: var(--catering-plum);
+  }
+}
+.catering-form-section {
+  background: #eadde8;
+  border-top: 1px solid #ddcbd9;
+  padding: clamp(40px, 5vw, 64px) 0 64px;
+  scroll-margin-top: 24px;
+}
+.catering-form-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 70px;
+  align-items: start;
+}
+.catering-form-intro {
+  padding-top: 22px;
+}
+.catering-form-intro h2 {
+  font-size: clamp(38px, 4vw, 54px);
+  line-height: 1.13;
+  color: var(--catering-plum);
+  margin: 16px 0 22px;
+}
+.catering-form-intro p:not(.eyebrow) {
+  line-height: 1.75;
+  max-width: 360px;
+  font-size: 15px;
+}
+.catering-form-intro .catering-note {
+  color: #705b6b;
+  margin-top: 26px;
+}
+.catering-contact-number {
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 25px;
+  margin-top: 22px;
+  padding: 18px 24px;
+  border: 1px solid #b899b0;
+  border-radius: 14px;
+  text-decoration: none;
+  background: #f5edf3;
+  color: var(--catering-plum);
+}
+.catering-contact-number span:first-child {
+  grid-column: 1/-1;
+  font-size: 12px;
+}
+.catering-contact-number strong {
+  font-size: 20px;
+  letter-spacing: 0.035em;
+}
+.catering-form {
+  background: var(--catering-cream);
+  padding: 32px;
+  border: 1px solid #e1d1dd;
+  border-radius: 20px;
+  box-shadow: 0 12px 36px #31172f08;
+  min-width: 0;
+}
+.catering-form h3 {
+  color: var(--catering-plum);
+  font-size: 29px;
+  margin: 0 0 8px;
+}
+.catering-form-hint {
+  color: #705b6b;
+  font-size: 12px;
+  margin: 0 0 26px;
+}
+.catering-field {
+  margin: 0 0 18px;
+}
+.catering-field label {
+  font-size: 13px;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.catering-field label span,
+.catering-additional summary span {
+  font-weight: 400;
+  color: #705b6b;
+}
+.catering-field :is(input, select, textarea) {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 48px;
+  font: inherit;
+  font-size: 16px;
+  border: 1px solid #baa6b5;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fffdfa;
+  color: var(--catering-deep);
+  margin: 0;
+}
+.catering-field small {
+  display: block;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #705b6b;
+  margin-top: 7px;
+}
+.catering-field .field-error {
+  color: #a22235;
+}
+.field-error:empty {
+  display: none;
+}
+.catering-field [aria-invalid="true"] {
+  border-color: #a22235;
+}
+.catering-additional {
+  border-block: 1px solid #e1d1dd;
+  padding: 16px 0;
+  margin-top: 4px;
+}
+.catering-additional summary {
+  font-size: 13px;
+  cursor: pointer;
+  min-height: 24px;
+}
+.catering-additional[open] summary {
+  margin-bottom: 20px;
+}
+.catering-privacy {
+  font-size: 11px;
+  color: #705b6b;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+.catering-privacy a {
+  color: var(--catering-plum);
+}
+.catering-form .catering-submit {
+  width: 100%;
+  min-height: 50px;
+  border-radius: 999px;
+  background: var(--catering-plum);
+  border-color: var(--catering-plum);
+  color: var(--catering-cream);
+  font-size: 14px;
+}
+.catering-submit:hover {
+  background: var(--catering-deep);
+}
+.catering-help {
+  text-align: center;
+  color: #705b6b;
+  font-size: 11px;
+  margin: 12px 0 22px;
+}
+.catering-alternative {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-top: 20px;
+  border-top: 1px solid #e1d1dd;
+  font-size: 12px;
+}
+.catering-whatsapp {
+  font-weight: 600;
+  color: var(--catering-plum);
+  text-underline-offset: 4px;
+}
+.catering-status:not(:empty) {
+  border-radius: 10px;
+  background: #f0e5ed;
+  padding: 16px;
+  margin: 0 0 20px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.catering-status[data-state="error"] {
+  background: #fcebed;
+  color: #8c2034;
+}
+.catering-status strong,
+.catering-status small {
+  display: block;
+}
+.catering-reviews {
+  padding-top: 0;
+  padding-bottom: 35px;
+}
+.catering-reviews figure {
+  margin: 0;
+  padding: 24px;
+  border-left: 2px solid var(--catering-plum);
+}
+.catering-reviews blockquote {
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+.catering-reviews figcaption {
+  font-size: 12px;
+}
+body[data-page="catering/"] .site-footer {
+  background: var(--catering-cream);
+}
+@media (max-width: 760px) {
+  .catering-hero {
+    padding: 34px 0 30px;
+  }
+  .catering-hero h1 {
+    font-size: clamp(39px, 8.8vw, 56px);
+    letter-spacing: -1px;
+    text-wrap: initial;
+  }
+  .catering-hero h1 em {
+    margin-top: 5px;
+  }
+  .catering-lead {
+    font-size: 15px;
+  }
+  .catering-form-layout {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .catering-form-section {
+    padding: 30px 0 40px;
+  }
+  .catering-form-intro {
+    padding: 0;
+  }
+  .catering-form-intro h2 {
+    font-size: 37px;
+  }
+  .catering-form-intro h2 br {
+    display: none;
+  }
+  .catering-form-intro .catering-note {
+    margin-top: 12px;
+  }
+  .catering-contact-number {
+    display: none;
+  }
+  .catering-form {
+    padding: 23px 18px;
+    border-radius: 16px;
+  }
+}

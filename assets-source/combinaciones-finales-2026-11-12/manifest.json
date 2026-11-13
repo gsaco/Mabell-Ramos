@@ -1,0 +1,310 @@
+{
+  "source": "ASSETS FINALES/COMBINACIONES",
+  "assets": [
+    {
+      "id": "01-taper-10-clasicos",
+      "name": "Táper · 10 alfajores clásicos",
+      "original": {
+        "file": "originals/01-taper-10-clasicos.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "a9c766441784551c922b062e7f8cc6438be994dde11bee1870d7f11fb8e618e8"
+      },
+      "variants": [
+        {
+          "file": "web/01-taper-10-clasicos-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 85944,
+          "sha256": "f410500e86f4e93dfd5f99503c064b2199e984c770ad488d4c2e812513c57d85"
+        },
+        {
+          "file": "web/01-taper-10-clasicos-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 75780,
+          "sha256": "f2bc2205d5c63a0d8e37da88d6f5dcf2a3f4e3b4474501ff991926870370dbcd"
+        },
+        {
+          "file": "web/01-taper-10-clasicos-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 292968,
+          "sha256": "db2fe777685cf16431667183f5e2f0f7bc413de5737962de0580c2e5fcb6a532"
+        },
+        {
+          "file": "web/01-taper-10-clasicos-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 239600,
+          "sha256": "6551d36e7ab353d54d2005bea0c0e89c4a411090030e40a8bd541ffe4dd56808"
+        },
+        {
+          "file": "web/01-taper-10-clasicos-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 624820,
+          "sha256": "045679c89f77c59cf0e71b2622c19259f3e1fb1c0060eb30a5d5b2b26287c1e6"
+        },
+        {
+          "file": "web/01-taper-10-clasicos-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 451986,
+          "sha256": "c3bcc021516c5d2afe81452d8aee03485f1e1d79bf698cbe0af2661b4ec5c655"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "02-taper-30-surtidos",
+      "name": "Táper · 30 alfajores surtidos",
+      "original": {
+        "file": "originals/02-taper-30-surtidos.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "44b29ae3c511050f86d3fa4af1bb20046f01d719aff235eb5aa54419a735416a"
+      },
+      "variants": [
+        {
+          "file": "web/02-taper-30-surtidos-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 86852,
+          "sha256": "bdb23570a390b2690754abd712655d8981453ea03ca4e5f3e5e244834b214c09"
+        },
+        {
+          "file": "web/02-taper-30-surtidos-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 79684,
+          "sha256": "b5c96e08b481dd1dcd22e8f1750bc7baea114bf76a626b0fede14405b1ddd916"
+        },
+        {
+          "file": "web/02-taper-30-surtidos-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 308514,
+          "sha256": "2f91ee62f84413db2adadf8cf499f4fb80a1cff221238383a1b6c2bc9e685594"
+        },
+        {
+          "file": "web/02-taper-30-surtidos-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 259619,
+          "sha256": "6e69193b72d98e2f4dd2e447d705804b6d9ada05b85be156739f137be0886fa0"
+        },
+        {
+          "file": "web/02-taper-30-surtidos-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 660666,
+          "sha256": "4eb2ced3d08919deddb3b83b67b62e32393853589805f05741aa99c9565ba72c"
+        },
+        {
+          "file": "web/02-taper-30-surtidos-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 493401,
+          "sha256": "9b73b776810b9c6dc66e0e73841a8c68e72f327555779cc9135651b415314be7"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "03-bolsa-descubrimiento-4-sabores",
+      "name": "Bolsita · 4 u 8 chocotejas",
+      "original": {
+        "file": "originals/03-bolsa-descubrimiento-4-sabores.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "4f9a97bdaf727ba81c1f19cbd0b8630c3f659dedaad14fae7e511b05fa36402e"
+      },
+      "variants": [
+        {
+          "file": "web/03-bolsa-descubrimiento-4-sabores-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 76626,
+          "sha256": "e30a04262e6f1e49825902d4cc36e21f4720d3574a2a0cd76859d5fc2a85cee3"
+        },
+        {
+          "file": "web/03-bolsa-descubrimiento-4-sabores-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 66551,
+          "sha256": "44482f2c4cec9ecccdfd4690449593c1808d455de538d79e7f5a43c2478ff783"
+        },
+        {
+          "file": "web/03-bolsa-descubrimiento-4-sabores-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 250574,
+          "sha256": "52438d380d086cfca6110ea6dfc36f2de98adbe6d479abb342ac34c941b76930"
+        },
+        {
+          "file": "web/03-bolsa-descubrimiento-4-sabores-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 197860,
+          "sha256": "0088a9776be679ae2815312221d5c0606f5333c4eb06956492b97f969c667adb"
+        },
+        {
+          "file": "web/03-bolsa-descubrimiento-4-sabores-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 544442,
+          "sha256": "eed7319d9a25e4bcb9b32e700933a0575e65519e4e85b51fdb0c9213b074cc90"
+        },
+        {
+          "file": "web/03-bolsa-descubrimiento-4-sabores-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 371320,
+          "sha256": "63ae7cff36b65b0e48b3956d8416dd3bb862579a51ed3f0f05e29dc9764c82d9"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "04-regalo-10-alfajores-3-chocotejas",
+      "name": "Caja de regalo · 13 o 26 dulces",
+      "original": {
+        "file": "originals/04-regalo-10-alfajores-3-chocotejas.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "b92fdc6ac874287c23f5cfafe821cea4ba0944043de23569a732efb9a089c35d"
+      },
+      "variants": [
+        {
+          "file": "web/04-regalo-10-alfajores-3-chocotejas-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 76248,
+          "sha256": "939485db00f5a76995f904802c144492b186fc97970a14775e70e01c9ffa5ee3"
+        },
+        {
+          "file": "web/04-regalo-10-alfajores-3-chocotejas-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 58964,
+          "sha256": "f9b3d4ade08ba14ffebe2d763e99e4e7bdad293fed46c892cee36c8b36b4a142"
+        },
+        {
+          "file": "web/04-regalo-10-alfajores-3-chocotejas-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 266266,
+          "sha256": "cf36213efa33e997735e095645e1368d6d209219cf3bc2b4cd36b17dd9b1b918"
+        },
+        {
+          "file": "web/04-regalo-10-alfajores-3-chocotejas-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 199494,
+          "sha256": "7eac5168372c27190c1f757dbab55c9493a86ee76cdd6c1b0ac23cac07a7dc42"
+        },
+        {
+          "file": "web/04-regalo-10-alfajores-3-chocotejas-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 595030,
+          "sha256": "b7784d14bd2ce0dda1657e7bdb4c40a227e9605a5b0be0900fb96e937216021d"
+        },
+        {
+          "file": "web/04-regalo-10-alfajores-3-chocotejas-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 388622,
+          "sha256": "762ba178a5a63bbee8166a622f996cd3b7f3df207b3f95e9963edf705225cf9e"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "05-regalo-6-chocotejas",
+      "name": "Caja de regalo · 6 chocotejas",
+      "original": {
+        "file": "originals/05-regalo-6-chocotejas.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "9a66491421f03f553114fcd0621144e443dc95e23f9f4d63b5817bf0f07d0719"
+      },
+      "variants": [
+        {
+          "file": "web/05-regalo-6-chocotejas-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 65956,
+          "sha256": "272a1fb2242e6b388645f0ff8ea22c2960a926aa12c7169694d37c97f82888b0"
+        },
+        {
+          "file": "web/05-regalo-6-chocotejas-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 45482,
+          "sha256": "24120cdceb76806c37451e333717bbe254773019ebce85ac95f6f389c786a2cf"
+        },
+        {
+          "file": "web/05-regalo-6-chocotejas-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 222280,
+          "sha256": "e15229fab0556dc7f10d63e6a21825e066485000383bf4eb50fab05c00ec3f56"
+        },
+        {
+          "file": "web/05-regalo-6-chocotejas-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 138515,
+          "sha256": "1663ef368d8cbd6a6b418e56f18ada6ebc29577cc748737477d909a21a979f58"
+        },
+        {
+          "file": "web/05-regalo-6-chocotejas-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 469606,
+          "sha256": "5be01030cfc5e309058419aefff7ceab7dad1fc98e0c9bf8b74bc8de0efcd92d"
+        },
+        {
+          "file": "web/05-regalo-6-chocotejas-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 254195,
+          "sha256": "bcb6c8789483c6839f2c5e2c07692ae36b7caadca506016365f77ecc38aaf626"
+        }
+      ],
+      "active": false
+    }
+  ]
+}

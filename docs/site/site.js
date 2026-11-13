@@ -11,6 +11,9 @@ let configuration = null;
 configPromise
   .then((c) => {
     configuration = c;
+    document.querySelectorAll("[data-product-inquiry]").forEach((section) => {
+      section.hidden = !(c.receiverEndpoint && c.privacyApproved);
+    });
     if (c.localPreview) {
       const banner = document.createElement("div");
       banner.className = "local-preview-banner";
@@ -476,7 +479,10 @@ function openHash() {
       notice.setAttribute("role", "status");
       notice.textContent =
         "Esta opción ya no está publicada. Explora las preparaciones actuales o consulta por otra elección.";
-      document.querySelector(".page-intro").after(notice);
+      (
+        document.querySelector(".product-navigation") ||
+        document.querySelector(".page-intro")
+      )?.after(notice);
     }
     return;
   }

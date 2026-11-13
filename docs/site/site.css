@@ -516,6 +516,17 @@ small,
 .consultation-grid > div:first-child > p:not(.eyebrow) {
   max-width: 330px;
 }
+.home-contact-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+}
+.home-contact-actions .text-link {
+  line-height: 1.5;
+  padding-block: 12px;
+}
 .consult-choice > details {
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -1664,5 +1675,14 @@ details[open] > summary {
 @media (prefers-reduced-motion: reduce) {
   .form-status[data-state="received"] {
     animation: none;
+  }
+}
+
+.collection-grid--pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 760px) {
+  .collection-grid--pair {
+    grid-template-columns: 1fr;
   }
 }

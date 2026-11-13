@@ -1,0 +1,186 @@
+{
+  "date": "2026-11-12",
+  "method": "built-in image generation / reference edits",
+  "reference_images": 5,
+  "native_resolution": true,
+  "upscaled": false,
+  "assets": [
+    {
+      "id": "chocoteja-lucuma",
+      "name": "Chocoteja de lúcuma",
+      "family": "chocotejas",
+      "file": "chocoteja-lucuma.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2230369,
+      "sha256": "336d559c5e69eba654c5369b6b812ce4b2a2217d24d8e39773e6e97eb610a840",
+      "upscaled": false,
+      "cut_illustrative": true,
+      "web": [
+        {
+          "file": "web/chocoteja-lucuma-original-sin-perdida.webp",
+          "kind": "original-sin-perdida",
+          "bytes": 1543038
+        },
+        {
+          "file": "web/chocoteja-lucuma-960.webp",
+          "kind": "960",
+          "bytes": 185268
+        }
+      ]
+    },
+    {
+      "id": "chocoteja-aji",
+      "name": "Chocoteja de ají",
+      "family": "chocotejas",
+      "file": "chocoteja-aji.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2170138,
+      "sha256": "ca7fcc485bc168405203c09a56ad86a2b385af55a5aa81ec8daa8a1d1efb1cea",
+      "upscaled": false,
+      "cut_illustrative": true,
+      "web": [
+        {
+          "file": "web/chocoteja-aji-original-sin-perdida.webp",
+          "kind": "original-sin-perdida",
+          "bytes": 1501964
+        },
+        {
+          "file": "web/chocoteja-aji-960.webp",
+          "kind": "960",
+          "bytes": 175634
+        }
+      ]
+    },
+    {
+      "id": "chocoteja-frejol-colado",
+      "name": "Chocoteja de frejol colado",
+      "family": "chocotejas",
+      "file": "chocoteja-frejol-colado.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2202932,
+      "sha256": "c04246549c3abe0f58bc00c9bafa0dd414ceaff571bb828b8a91a1a65c49e26b",
+      "upscaled": false,
+      "cut_illustrative": true,
+      "web": [
+        {
+          "file": "web/chocoteja-frejol-colado-original-sin-perdida.webp",
+          "kind": "original-sin-perdida",
+          "bytes": 1528276
+        },
+        {
+          "file": "web/chocoteja-frejol-colado-960.webp",
+          "kind": "960",
+          "bytes": 178268
+        }
+      ]
+    },
+    {
+      "id": "chocoteja-manjar-pallar",
+      "name": "Chocoteja de manjar de pallar",
+      "family": "chocotejas",
+      "file": "chocoteja-manjar-pallar.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2172315,
+      "sha256": "f60d6aee2ca8cb66d97323c14a3d368dc439e3e0492da9e5587d696229b4b52b",
+      "upscaled": false,
+      "cut_illustrative": true,
+      "web": [
+        {
+          "file": "web/chocoteja-manjar-pallar-original-sin-perdida.webp",
+          "kind": "original-sin-perdida",
+          "bytes": 1496480
+        },
+        {
+          "file": "web/chocoteja-manjar-pallar-960.webp",
+          "kind": "960",
+          "bytes": 176300
+        }
+      ]
+    },
+    {
+      "id": "alfajor-clasico",
+      "name": "Alfajor clásico",
+      "family": "alfajores",
+      "file": "alfajor-clasico.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2327007,
+      "sha256": "d96b636da8e90e08bd52672eb9f3cb35534f9def3d14e679711fccadcd970e8d",
+      "upscaled": false,
+      "cut_illustrative": false,
+      "web": [
+        {
+          "file": "web/alfajor-clasico-original-sin-perdida.webp",
+          "kind": "original-sin-perdida",
+          "bytes": 1610790
+        },
+        {
+          "file": "web/alfajor-clasico-960.webp",
+          "kind": "960",
+          "bytes": 200014
+        }
+      ]
+    },
+    {
+      "id": "alfajor-canihua",
+      "name": "Alfajor de cañihua",
+      "family": "alfajores",
+      "file": "alfajor-canihua.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2183000,
+      "sha256": "f350c19f400b27b4894f5b9ff1c252ead494b39830f9e4ee2e2931e62b3e99c9",
+      "upscaled": false,
+      "cut_illustrative": false,
+      "web": [
+        {
+          "file": "web/alfajor-canihua-original-sin-perdida.webp",
+          "kind": "original-sin-perdida",
+          "bytes": 1543774
+        },
+        {
+          "file": "web/alfajor-canihua-960.webp",
+          "kind": "960",
+          "bytes": 189258
+        }
+      ],
+      "reference": "COMBINACIONES/02-taper-30-surtidos.png"
+    },
+    {
+      "id": "alfajor-pistacho-arandano",
+      "name": "Alfajor de pistacho y arándano",
+      "family": "alfajores",
+      "file": "alfajor-pistacho-arandano.png",
+      "width": 1448,
+      "height": 1086,
+      "bytes": 2269267,
+      "sha256": "eb5aef055280e860c3711de4d6ed56f7c451a08872a9c63b7b797200fc5cad96",
+      "upscaled": false,
+      "cut_illustrative": false,
+      "web": [
+        {
+          "file": "web/alfajor-pistacho-arandano-original-sin-perdida.webp",
+          "kind": "original-sin-perdida",
+          "bytes": 1579218
+        },
+        {
+          "file": "web/alfajor-pistacho-arandano-960.webp",
+          "kind": "960",
+          "bytes": 196142
+        }
+      ],
+      "reference": "COMBINACIONES/02-taper-30-surtidos.png"
+    }
+  ],
+  "notes": [
+    "Montaje basado en las cinco referencias proporcionadas por el usuario.",
+    "Rellenos ilustrativos; el aspecto interior exacto requiere referencia fotográfica del producto real.",
+    "PNG nativos y WebP sin pérdida, más derivados web de 960 px.",
+    "Las dimensiones nativas son las entregadas por el generador; no son archivos 4K.",
+    "Cañihua y pistacho con arándano actualizados para coincidir con el acabado del táper de 30 alfajores."
+  ]
+}

@@ -2,6 +2,8 @@ import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { validateCatalog } from "../site-src/scripts/catalog-validation.mjs";
+import { renderCatering } from "./catering-page.mjs";
+import { renderProductShowcase } from "./product-showcase.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const json = async (name) =>
   JSON.parse(await readFile(path.join(root, "site-src/content", name), "utf8"));
@@ -15,6 +17,21 @@ const outRoot = process.env.SITE_OUTPUT_DIR
   : path.join(root, "docs");
 const editorial = await json("editorial.json");
 const imagery = await json("editorial-images.json");
+const productShowcase = await json("product-showcase.json");
+const productAssetRoot = path.join(
+  root,
+  "assets-source/productos-finales-2026-11-12",
+);
+const productAssets = JSON.parse(
+  await readFile(path.join(productAssetRoot, "manifest.json"), "utf8"),
+);
+const combinationAssetRoot = path.join(
+  root,
+  "assets-source/combinaciones-finales-2026-11-12",
+);
+const combinationAssets = JSON.parse(
+  await readFile(path.join(combinationAssetRoot, "manifest.json"), "utf8"),
+);
 const config = await json("site-config.json");
 if (
   config.receiverEndpoint &&
@@ -80,10 +97,9 @@ const groups = Object.keys(occasionNames).filter((key) =>
   data.options.some((o) => o.occasion === key),
 );
 const nav = (route) =>
-  `<a class="skip-link" href="#contenido">Ir al contenido</a><header class="site-header"><div class="container header-inner"><a class="site-brand" href="${url("")}" aria-label="Mabell Ramos, inicio"><img src="${asset("logo-128.webp")}" alt="" width="64" height="64"><span>MABELL RAMOS<small>DULCES CON RAÍZ</small></span></a><nav aria-label="Principal">${[
+  `<a class="skip-link" href="#contenido">Ir al contenido</a><header class="site-header"><div class="container header-inner"><a class="site-brand" href="${url("productos/")}" aria-label="Mabell Ramos, productos"><img src="${asset("logo-128.webp")}" alt="" width="64" height="64"><span>MABELL RAMOS<small>${route === "productos/" ? "PASTELERÍA AFROPERUANA" : "DULCES CON RAÍZ"}</small></span></a><nav aria-label="Principal">${[
     ["productos/", "Productos"],
     ["catering/", "Catering"],
-    ["catalogo/", "Catálogo"],
   ]
     .map(
       ([p, t]) =>
@@ -91,9 +107,9 @@ const nav = (route) =>
     )
     .join(
       "",
-    )}</nav><a class="button button-small" href="${url("#consulta")}">Consultar ${svg("mensaje")}</a></div></header>`;
-const footer = () =>
-  `<footer class="site-footer"><div class="container footer-grid"><div><a class="footer-brand" href="${url("")}">Mabell Ramos</a><p>Pastelería fina con raíz afroperuana.</p><small>Magdalena del Mar, Lima</small></div><nav aria-label="Pie de página">${link(url("productos/"), "Productos")}${link(url("catering/"), "Catering")}${link(url("catalogo/"), "Catálogo")}</nav><div>${link(ig, "Instagram", "text-link external")}<p>${link(url("privacidad/"), "Privacidad")}</p><small>Conversemos antes de confirmar tu pedido.</small></div></div><div class="container footer-bottom"><span>El cuidado está en los detalles.</span><span>© ${new Date().getFullYear()} Mabell Ramos</span></div></footer>`;
+    )}</nav><a class="button button-small" href="${route === "productos/" ? "https://wa.me/51932666526?text=Hola%2C%20me%20interesan%20sus%20dulces." : route === "catering/" ? "#consulta-evento" : "https://wa.me/51932666526?text=Hola%2C%20me%20interesan%20sus%20dulces."}">${route === "productos/" ? "WhatsApp" : route === "catering/" ? "Solicitar cotización" : "Consultar"} ${svg("mensaje")}</a></div></header>`;
+const footer = (route = "") =>
+  `<footer class="site-footer"><div class="container footer-grid"><div><a class="footer-brand" href="${url("productos/")}">Mabell Ramos</a><p>Pastelería fina con raíz afroperuana.</p><small>Magdalena del Mar, Lima</small></div><nav aria-label="Pie de página">${link(url("productos/"), "Productos")}${link(url("catering/"), "Catering")}</nav><div>${link(ig, "Instagram", "text-link external")}<p>${link(url("privacidad/"), "Privacidad")}</p></div></div><div class="container footer-bottom"><span>© ${new Date().getFullYear()} Mabell Ramos</span></div></footer>`;
 function picture(name, alt, hero = false) {
   const spec = imagery[name];
   if (!spec) throw new Error(`Unknown editorial image: ${name}`);
@@ -133,7 +149,7 @@ const steps = (catering) =>
         ],
       ]
     : [
-        ["01", "Elige", "Explora los productos o recorre el catálogo.", "hoja"],
+        ["01", "Elige", "Explora los productos y elige tus favoritos.", "hoja"],
         [
           "02",
           "Cuéntanos qué necesitas",
@@ -207,7 +223,7 @@ function form({
  <p class="privacy-note">Usaremos estos datos para atender tu consulta. ${link(url("privacidad/"), "Cómo tratamos tus datos")}</p><div class="bot-check"></div><p class="form-status" role="status" aria-live="polite"></p><button class="button submit-inquiry" type="submit" disabled>${event ? "Enviar consulta de evento" : "Enviar consulta"} ${svg("flecha")}</button><button type="button" class="button button-secondary edit-inquiry" hidden>Revisar o cambiar datos</button><p class="form-help">Revisaremos disponibilidad y condiciones antes de confirmar el pedido.</p><a class="text-link external" href="${ig}">Prefiero escribir por Instagram ${arrow}</a><noscript><p>Para enviar el formulario necesitas activar JavaScript. También puedes escribirnos por Instagram.</p></noscript></form>`;
 }
 function consultation() {
-  return `<section class="section consultation" id="consulta"><div class="container consultation-grid"><div><p class="eyebrow">CONVERSEMOS</p><h2>Una ocasión.<br>Una propuesta para ti.</h2><p>¿Buscas dulces o estás organizando una reunión? Elige cómo empezar y cuéntanos lo que necesitas.</p>${link(ig, "También estamos en Instagram", "text-link external")}</div><div><div class="consult-choice"><details open><summary>Consultar por productos ${svg("flecha")}</summary>${form({ source: "/" })}</details><a href="${url("catering/#consulta-evento")}">Consultar por un evento ${arrow}</a></div></div></div></section>`;
+  return `<section class="section consultation" id="consulta"><div class="container consultation-grid"><div><p class="eyebrow">CONVERSEMOS</p><h2>Una ocasión.<br>Una propuesta para ti.</h2><p>¿Buscas dulces o estás organizando una reunión? Elige cómo empezar y cuéntanos lo que necesitas.</p>${link(ig, "También estamos en Instagram", "text-link external")}</div><div class="home-contact-actions"><a class="button" href="https://wa.me/51932666526?text=Hola%2C%20Mabell%20Ramos.%20Me%20interesan%20sus%20chocotejas%20y%20alfajores.">Consultar por WhatsApp ${svg("mensaje")}</a><a class="text-link" href="${url("catering/#consulta-evento")}">Solicitar cotización de catering ${arrow}</a></div></div></section>`;
 }
 const faq = () =>
   `<section class="section faq"><div class="container narrow"><p class="eyebrow">ANTES DE ENCARGAR</p><h2>Lo coordinamos contigo.</h2>${[
@@ -260,72 +276,50 @@ function videoBlock(v) {
   if (!/^[a-zA-Z0-9/_-]+\.mp4$/.test(v.src) || !v.poster) return "";
   return `<figure class="real-video"><video controls preload="none" poster="${url(v.poster)}" width="960" height="540"><source src="${url(v.src)}" type="video/mp4">Tu navegador no puede reproducir el video.</video><figcaption>${e(v.caption)}</figcaption></figure>`;
 }
-function home() {
-  return `<section class="hero container"><div class="hero-copy"><p class="eyebrow">PASTELERÍA FINA CON RAÍZ AFROPERUANA</p><h1>Dulces para disfrutar,<br><em>regalar y descubrir.</em></h1><p class="lead">Conoce nuestras preparaciones, elige una opción y conversemos sobre tu pedido.</p><div class="actions">${link(url("productos/"), "Ver productos", "button")}${link(url("catalogo/"), "Ver catálogo")}</div><p class="hero-footnote">Una preparación cuidada. Una atención cercana.</p></div>${picture("hero-editorial", "Ilustración editorial de chocotejas y alfajores sobre un plato lavanda", true)}</section>
- <section class="section collection"><div class="container"><div class="section-heading"><div><p class="eyebrow">NUESTRA PROPUESTA</p><h2>Sabores que invitan<br>a compartir.</h2></div><p>Explora nuestras preparaciones y consulta los sabores y presentaciones para tu ocasión.</p></div><div class="collection-grid">${editorial.referenceProducts
-   .slice(0, 2)
-   .map(
-     (p) =>
-       `<article>${picture(p.image, `Ilustración referencial de ${p.name.toLowerCase()}`)}<h3>${e(p.name)}</h3><p>${e(p.description)}</p>${link(url(`catalogo/#pagina-${p.page}`), "Explorar en el catálogo")}</article>`,
-   )
-   .join(
-     "",
-   )}<article class="catalogue-tile"><div class="catalogue-cover"><img src="${asset("catalogo-portada-320.webp")}" width="320" height="453" alt="Portada del catálogo de Mabell Ramos" loading="lazy"></div><p class="eyebrow">LA COLECCIÓN COMPLETA</p><h3>Tu próxima elección.</h3><p>Recorre el catálogo, página a página. Consulta por una preparación o vuelve a pedir tu favorita.</p>${link(url("catalogo/"), "Abrir catálogo")}</article></div></div></section>
- ${groups.length ? `<section class="section"><div class="container"><h2>¿Cómo quieres disfrutarlos?</h2><div class="occasion-grid">${groups.map((k) => `<article><h3>${occasionNames[k]}</h3><p>${{ disfrutar: "Elige tus favoritos para ti o para compartir.", regalar: "Encuentra una presentación para esa ocasión especial.", descubrir: "Conoce sabores e ingredientes y elige qué probar." }[k]}</p>${link(url(`productos/#para-${k}`), "Ver opciones")}</article>`).join("")}</div></div></section>` : ""}
- <section class="section catering-teaser"><div class="container split"><div class="catering-mark" aria-hidden="true">${svg("bandeja")}<span>UN ENCUENTRO<br>PARA COMPARTIR</span><img src="${asset("rama-marca.svg")}" width="140" height="190" alt="" loading="lazy"></div><div><p class="eyebrow">REUNIONES Y EVENTOS</p><h2>¿Estás organizando<br>una reunión?</h2><p>Consulta por alimentos y por el montaje o la atención que necesitas. Definiremos contigo el alcance del servicio.</p>${link(url("catering/"), "Ver catering", "button")}</div></div></section>
- <section class="section roots" id="nuestra-raiz"><div class="container roots-grid"><div><p class="eyebrow">NUESTRA RAÍZ</p><h2>El sabor también<br>cuenta una historia.</h2></div><div><p>Mabell Ramos nace del trabajo de Mabell y Ana, madre e hija. Sus preparaciones reúnen el aprendizaje de Mabell, el cuidado por los acabados y la raíz afroperuana de su familia. Entre dulces clásicos y sabores propios de su propuesta, buscan compartir una experiencia cercana, desde la elección hasta la entrega.</p>${link(url("productos/#sabores"), "Conoce los sabores")}<figure class="fair-photo"><img src="${asset("feria-mesa-640.webp")}" srcset="${asset("feria-mesa-640.webp")} 640w, ${asset("feria-mesa-1200.webp")} 1200w" sizes="(max-width:760px) 100vw, 50vw" alt="Presentación de productos Mabell Ramos sobre bandejas y un expositor de madera" width="1600" height="880" loading="lazy" decoding="async"><figcaption>Presentación de productos en feria.</figcaption></figure></div></div></section>
- <section class="section how-to" id="como-pedir"><div class="container"><p class="eyebrow">ASÍ EMPEZAMOS</p><h2>Elegir puede ser sencillo.</h2>${steps(false)}<p class="confirmation-note">Confirmaremos disponibilidad, precio y entrega antes de aceptar el pedido.</p></div></section>${editorial.videos
-   .filter((v) => v.page === "home")
-   .map(videoBlock)
-   .join("")}${consultation()}`;
-}
 function products() {
-  return `<section class="container">${intro("ELIGE TU OCASIÓN", "Productos para cada ocasión", "Para disfrutar, regalar o conocer nuevos sabores. Explora la propuesta y cuéntanos qué te gustaría pedir.")}${groups.length ? `<nav class="anchor-nav" aria-label="Opciones por ocasión">${groups.map((k) => `<a href="#para-${k}">${occasionNames[k]}</a>`).join("")}</nav>` : '<div class="intro-actions">' + link(url("catalogo/"), "Explorar catálogo", "button") + link("#consulta-productos", "Consultar por productos") + "</div>"}</section>
- ${
-   groups.length
-     ? `<div id="opciones">${groups
-         .map(
-           (k) =>
-             `<section class="section container" id="para-${k}"><p class="eyebrow">TU ELECCIÓN</p><h2>${occasionNames[k]}</h2><div class="option-grid">${data.options
-               .filter((o) => o.occasion === k)
-               .map(optionCard)
-               .join("")}</div></section>`,
-         )
-         .join("")}</div>`
-     : ""
- }
- <section class="section container" id="sabores"><div class="section-heading"><div><p class="eyebrow">CONOCE LOS SABORES</p><h2>El detalle de cada preparación.</h2></div><p>Los sabores y presentaciones se confirman al consultar. Revisa los ingredientes y alérgenos antes de encargar.</p></div>${data.products.length ? `<div class="product-grid">${data.products.map(productCard).join("")}</div>` : `<div class="reference-grid">${editorial.referenceProducts.map((p) => `<article id="producto-${p.id}">${p.image ? picture(p.image, `Ilustración referencial de ${p.name.toLowerCase()}`) : `<div class="type-illustration" aria-hidden="true">${svg("hoja")}<span>DULCES<br>CON RAÍZ</span></div>`}<div class="reference-copy"><h3>${p.name}</h3><p>${p.description}</p><details><summary>Conocer la preparación</summary><p>${p.detail}</p>${link(url(`catalogo/#pagina-${p.page}`), "Ver en el catálogo")}</details></div></article>`).join("")}</div>`}</section>
- <section class="section gift-story"><div class="container split">${picture("regalo", "Ilustración editorial de una presentación para regalo")}<div><p class="eyebrow">TU OCASIÓN, TU ELECCIÓN</p><h2>Un detalle para alguien.<br>Un sabor para ti.</h2><p>Cuéntanos si buscas un regalo, repetir tus favoritos o probar una preparación diferente. Coordinaremos contenido, cantidad y presentación contigo.</p>${link("#consulta-productos", "Cuéntanos qué buscas", "button")}</div></div></section>${faq()}
- <section class="section form-section" id="consulta-productos"><div class="container narrow"><p class="eyebrow">CONVERSEMOS</p><h2>Consulta por productos.</h2><p>Si ya compraste antes, puedes mencionar la preparación o la referencia de tu pedido.</p>${form()}</div></section>`;
+  const commercial =
+    groups.length || data.products.length
+      ? `<section class="section product-approved"><div class="container">${groups.length ? `<h2>Opciones para tu ocasión.</h2><nav class="anchor-nav" aria-label="Opciones por ocasión">${groups.map((k) => `<a href="#para-${k}">${occasionNames[k]}</a>`).join("")}</nav>` : ""}</div><div id="opciones">${groups
+          .map(
+            (k) =>
+              `<section class="section container" id="para-${k}"><p class="eyebrow">TU ELECCIÓN</p><h2>${occasionNames[k]}</h2><div class="option-grid">${data.options
+                .filter((o) => o.occasion === k)
+                .map(optionCard)
+                .join("")}</div></section>`,
+          )
+          .join(
+            "",
+          )}</div>${data.products.length ? `<div class="container"><h2>El detalle de cada preparación.</h2><div class="product-grid">${data.products.map(productCard).join("")}</div></div>` : ""}</section>`
+      : "";
+  return renderProductShowcase({
+    content: productShowcase,
+    manifest: {
+      assets: [...productAssets.assets, ...combinationAssets.assets],
+    },
+    e,
+    url,
+    asset,
+    svg,
+    ig,
+    commercial,
+    inquiryForm: form(),
+  });
 }
+
 function catering() {
-  return `<section class="container">${intro("REUNIONES Y EVENTOS", "Alimentos y catering<br>para tu reunión", "Cuéntanos qué estás organizando. Definiremos los alimentos y, si lo necesitas, el montaje o la atención que formarán parte de la propuesta.")}<div class="intro-actions">${link("#consulta-evento", "Consultar por mi evento", "button")}${link(url("catalogo/#pagina-7"), "Ver bocaditos en el catálogo")}</div></section>
- <section class="section container" id="alcance"><div class="scope-grid"><article><span class="number">01</span><h2>Sólo alimentos</h2><p>Coordinamos los productos, cantidades, presentación y entrega para tu reunión.</p><p class="small-text">El montaje, la vajilla y la atención se acuerdan por separado.</p><a class="text-link" href="#consulta-evento" data-scope-choice="food_only">Consultar por alimentos ${arrow}</a></article><article><span class="number">02</span><h2>Alimentos y servicio</h2><p>Además de los alimentos, acordamos el montaje, menaje o atención que necesitas.</p><p class="small-text">Cada componente depende del alcance y los recursos confirmados.</p><a class="text-link" href="#consulta-evento" data-scope-choice="food_and_service">Consultar por catering ${arrow}</a></article></div><p class="confirmation-note">La propuesta indicará qué incluye, qué se cotiza por separado y cómo se coordina el traslado.</p></section>
- <section class="section food-families"><div class="container"><p class="eyebrow">EMPIEZA POR LOS ALIMENTOS</p><h2>Una selección para tu reunión.</h2><div class="family-grid">${[
-   ["Dulces", "Bocaditos para compartir.", 7],
-   ["Salados", "Preparaciones para tu encuentro.", 9],
-   ["Porciones personales", "Revisa tamaño y presentación.", 11],
-   ["Bebidas", "Opciones a coordinar con el servicio.", 12],
- ]
-   .map(
-     ([t, d, p]) =>
-       `<a href="${url(`catalogo/#pagina-${p}`)}"><span class="family-icon">${svg("bandeja")}</span><h3>${t}</h3><p>${d}</p><span class="text-link">Ver catálogo ${arrow}</span></a>`,
-   )
-   .join(
-     "",
-   )}</div><p class="small-text">La cantidad de asistentes orienta la consulta; las cantidades y tarifas se acuerdan para cada preparación.</p></div></section>
- <section class="section container"><p class="eyebrow">EL ALCANCE SE ACUERDA</p><h2>De la idea al encuentro.</h2>${steps(true)}</section>${editorial.videos
-   .filter((v) => v.page === "catering")
-   .map(videoBlock)
-   .join("")}
- <section class="section form-section" id="consulta-evento"><div class="container narrow"><p class="eyebrow">CONVERSEMOS</p><h2>Consulta por tu evento.</h2><p>Puedes escribirnos aunque la fecha o la cantidad de personas todavía estén por definir.</p>${form({ kind: "event", source: "/catering/", event: true })}</div></section>`;
+  return renderCatering({
+    url,
+    e,
+    enabled: config.cateringEmailEnabled === true,
+  });
 }
+
 function privacy() {
-  return `<section class="section container narrow">${intro("TUS DATOS", "Privacidad", "Una consulta sirve para iniciar una conversación y acordar las condiciones de tu pedido.")}<div class="prose"><h2>Para qué solicitamos tus datos</h2><p>El nombre, el correo y los detalles de tu solicitud se utilizan para responder y coordinar productos o servicios. Enviar una consulta no te suscribe a promociones ni confirma un pedido.</p><h2>Cómo se conserva una consulta</h2><p>Cuando la recepción web está activada, la consulta se guarda en un repositorio privado de GitHub y se incorpora a la gestión del negocio. El código y el catálogo públicos no contienen los datos de quienes consultan.</p><h2>Quién atiende tu solicitud</h2><p>${e(config.privacy.responsible)}. Para consultar por el uso o la corrección de tus datos, comunícate a través de ${link(config.privacy.contactUrl, "Instagram")}.</p><h2>Conservación</h2><p>${config.privacyApproved && config.privacy.retention ? e(config.privacy.retention) : "La recepción web de datos reales permanece desactivada hasta que el negocio apruebe el aviso y el plazo de conservación. Mientras tanto, puedes iniciar la conversación por Instagram."}</p><p>GitHub conserva un historial de versiones. Las solicitudes de eliminación requieren revisar también ese historial y las copias conservadas; borrar un archivo actual no elimina por sí solo sus versiones anteriores.</p><h2>Uso de esta web</h2><p>No se crean cuentas de clientes ni se realizan pagos desde esta página. No utilizamos cookies publicitarias ni incorporamos seguimiento comercial. Si se activa la protección del formulario, su proveedor verificará el envío para limitar el abuso.</p><p>Versión del aviso: ${e(config.privacyNoticeVersion || "pendiente de aprobación")}.</p></div></section>`;
+  return `<section class="section container narrow">${intro("TUS DATOS", "Privacidad", "Una consulta sirve para iniciar una conversación y acordar las condiciones de tu pedido.")}<div class="prose"><h2 id="catering">Solicitudes de catering</h2><p>Tu nombre, WhatsApp y los datos que compartas sobre tu reunión se utilizan para preparar una propuesta y coordinar contigo. El correo electrónico es opcional. La solicitud no confirma una reserva ni te suscribe a publicidad.</p><p>El formulario de catering utiliza FormSubmit para enviar la información a mabellramospe@gmail.com. El proveedor conserva un respaldo de los envíos durante 30 días. Puedes consultar sus <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">condiciones de privacidad</a>. Para solicitar acceso, corrección o eliminación de tus datos, escribe a <a href="mailto:mabellramospe@gmail.com">mabellramospe@gmail.com</a>.</p><p>La copia recibida en el correo del negocio se utiliza para atender y dar seguimiento a tu solicitud; no se publica en esta web. Si eliges WhatsApp, el mensaje se abrirá para que lo revises antes de enviarlo.</p>${config.receiverEndpoint && config.privacyApproved ? `<h2>Otros formularios de esta web</h2><h2>Para qué solicitamos tus datos</h2><p>El nombre, el correo y los detalles de tu solicitud se utilizan para responder y coordinar productos o servicios. Enviar una consulta no te suscribe a promociones ni confirma un pedido.</p><h2>Cómo se conserva una consulta</h2><p>Cuando la recepción web está activada, la consulta se guarda en un repositorio privado de GitHub y se incorpora a la gestión del negocio. El código y el catálogo públicos no contienen los datos de quienes consultan.</p><h2>Quién atiende tu solicitud</h2><p>${e(config.privacy.responsible)}. Para consultar por el uso o la corrección de tus datos, comunícate a través de ${link(config.privacy.contactUrl, "Instagram")}.</p><h2>Conservación</h2><p>${config.privacyApproved && config.privacy.retention ? e(config.privacy.retention) : "Los otros formularios de recepción en GitHub permanecen desactivados. Puedes iniciar la conversación por WhatsApp o Instagram."}</p><p>GitHub conserva un historial de versiones. Las solicitudes de eliminación requieren revisar también ese historial y las copias conservadas; borrar un archivo actual no elimina por sí solo sus versiones anteriores.</p>` : ""}<h2>Uso de esta web</h2><p>No se crean cuentas de clientes ni se realizan pagos desde esta página. No utilizamos cookies publicitarias ni incorporamos seguimiento comercial. Si se activa la protección del formulario, su proveedor verificará el envío para limitar el abuso.</p>${config.receiverEndpoint && config.privacyApproved && config.privacyNoticeVersion ? `<p>Versión del aviso: ${e(config.privacyNoticeVersion)}.</p>` : ""}</div></section>`;
 }
 function layout(route, title, description, body, extraHead = "") {
   const absolute = config.siteOrigin + url(route);
-  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#432653"><meta name="description" content="${e(description)}"><title>${e(title)} · Mabell Ramos</title><link rel="canonical" href="${absolute}"><meta property="og:title" content="${e(title)} · Mabell Ramos"><meta property="og:description" content="${e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="${absolute}"><meta property="og:image" content="${config.siteOrigin + asset("social-inicio-v2.jpg")}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="${asset("favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="${asset("apple-touch-icon.png")}">${extraHead}<link rel="preload" href="${asset("inter-400.woff2")}" as="font" type="font/woff2" crossorigin><link rel="preload" href="${asset("bodoni-moda-600.woff2")}" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="${url("site/site.css")}"><script type="module" src="${url("site/site.js")}"></script></head><body data-page="${route}" data-site-base="${base}">${nav(route)}<main id="contenido">${body}</main>${footer()}</body></html>`;
+  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#432653"><meta name="description" content="${e(description)}"><title>${e(title)} · Mabell Ramos</title><link rel="canonical" href="${absolute}"><meta property="og:title" content="${e(title)} · Mabell Ramos"><meta property="og:description" content="${e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="${absolute}"><meta property="og:image" content="${config.siteOrigin + asset("social-inicio-v2.jpg")}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="${asset("favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="${asset("apple-touch-icon.png")}">${extraHead}<link rel="preload" href="${asset("inter-400.woff2")}" as="font" type="font/woff2" crossorigin><link rel="preload" href="${asset("bodoni-moda-600.woff2")}" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="${url("site/site.css")}"><script type="module" src="${url("site/site.js")}"></script>${route === "catering/" ? `<link rel="stylesheet" href="${url("site/catering.css")}"><script type="module" src="${url("site/catering.js")}"></script>` : ""}${route === "productos/" ? `<link rel="stylesheet" href="${url("site/products.css")}"><script type="module" src="${url("site/products.js")}"></script>` : ""}</head><body data-page="${route}" data-site-base="${base}">${nav(route)}<main id="contenido">${body}</main>${footer(route)}</body></html>`;
 }
 async function save(route, content) {
   const out = path.join(outRoot, route);
@@ -339,10 +333,10 @@ const redirect = `<script>if(/^#pagina-\\d+$/.test(location.hash)){let n=Number(
 await save(
   "index.html",
   layout(
-    "",
-    "Dulces para disfrutar, regalar y descubrir",
-    "Pastelería fina con raíz afroperuana. Explora nuestros productos, consulta por catering y recorre el catálogo.",
-    home(),
+    "productos/",
+    "Chocotejas y alfajores · Productos",
+    "Pastelería fina con raíz afroperuana. Explora nuestros productos y consulta por catering.",
+    products(),
     redirect,
   ),
 );
@@ -350,8 +344,8 @@ await save(
   "productos/index.html",
   layout(
     "productos/",
-    "Productos para cada ocasión",
-    "Conoce las preparaciones de Mabell Ramos y consulta para disfrutar, regalar o descubrir sabores.",
+    "Chocotejas y alfajores · Productos",
+    "Chocotejas de lúcuma, ají, frejol colado y manjar de pallar; alfajores clásicos, de cañihua y de pistacho y arándano. Pastelería afroperuana de Mabell Ramos.",
     products(),
   ),
 );
@@ -378,8 +372,8 @@ await save(
   layout(
     "404.html",
     "No encontramos esta página",
-    "Vuelve a los productos y al catálogo de Mabell Ramos.",
-    `<section class="section container narrow">${intro("VOLVAMOS A LOS SABORES", "Esta página no está aquí.", "Puedes volver al inicio o recorrer el catálogo para encontrar tu preparación.")}<div class="actions">${link(url(""), "Volver al inicio", "button")}${link(url("catalogo/"), "Ver catálogo")}</div></section>`,
+    "Vuelve a los productos de Mabell Ramos.",
+    `<section class="section container narrow">${intro("VOLVAMOS A LOS SABORES", "Esta página no está aquí.", "Explora nuestros productos para encontrar tu preparación.")}<div class="actions">${link(url("productos/"), "Ver productos", "button")}</div></section>`,
   ),
 );
 // The viewer's original styles remain isolated. Only its surrounding shell uses site styles.
@@ -400,13 +394,17 @@ viewer = viewer
     `<body class="catalogue-page" data-page="catalogo/" data-site-base="${base}">${nav("catalogo/")}<div class="catalogue-shell">`,
   )
   .replace("<main>", '<main id="contenido">');
-viewer = viewer.replace('href="./"', `href="${url("")}"`);
+viewer = viewer.replace('href="./"', `href="${url("productos/")}"`);
 viewer = viewer.replace(
   "<noscript>",
   `<p class="catalogue-edition">Confirma disponibilidad y condiciones al consultar. Este catálogo es una referencia de la propuesta; sus páginas no cambian al actualizar una opción comercial.</p><section class="catalogue-access"><details id="catalog-transcription"><summary>Leer contenido de esta página</summary><div id="transcription-content" aria-live="polite"><p>Selecciona una página para leer su contenido.</p></div></details><details id="catalog-consultation"><summary>Consultar esta página</summary>${form({ kind: "catalog_page", source: "/catalogo/", catalog: true })}</details></section><noscript>`,
 );
 viewer = viewer.replace(/<footer>[\s\S]*?<\/footer>/, "");
 viewer = viewer.replace("</body>", `</div>${footer()}</body>`);
+viewer = viewer.replace(
+  "</head>",
+  '<meta name="robots" content="noindex"></head>',
+);
 await save("catalogo/index.html", viewer);
 let app = await readFile(path.join(root, "site-src/catalogue/app.js"), "utf8");
 app = app.replaceAll("`assets/", "`../assets/");
@@ -442,7 +440,7 @@ await save(
   ),
 );
 await save("site/catalog-public.json", JSON.stringify(data, null, 2));
-for (const f of ["site.js", "catalog-validation.mjs"])
+for (const f of ["site.js", "catalog-validation.mjs", "catering.js"])
   await copyFile(
     path.join(root, "site-src/scripts", f),
     path.join(outRoot, "site", f),
@@ -473,13 +471,39 @@ try {
     ),
   );
 }
+await copyFile(
+  path.join(root, "site-src/styles/catering.css"),
+  path.join(outRoot, "site/catering.css"),
+);
+await copyFile(
+  path.join(root, "site-src/styles/products.css"),
+  path.join(outRoot, "site/products.css"),
+);
+await copyFile(
+  path.join(root, "site-src/scripts/products.js"),
+  path.join(outRoot, "site/products.js"),
+);
+await mkdir(path.join(outRoot, "assets/web/productos"), { recursive: true });
+for (const [assetRoot, collection] of [
+  [productAssetRoot, productAssets],
+  [combinationAssetRoot, combinationAssets],
+]) {
+  for (const image of collection.assets) {
+    for (const variant of image.variants) {
+      await copyFile(
+        path.join(assetRoot, variant.file),
+        path.join(outRoot, "assets/web/productos", path.basename(variant.file)),
+      );
+    }
+  }
+}
 await save(
   "robots.txt",
   `User-agent: *\nAllow: /\nSitemap: ${config.siteOrigin + url("sitemap.xml")}\n`,
 );
 await save(
   "sitemap.xml",
-  `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${["", "productos/", "catering/", "catalogo/", "privacidad/"].map((p) => `<url><loc>${config.siteOrigin + url(p)}</loc></url>`).join("")}</urlset>`,
+  `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${["", "productos/", "catering/", "privacidad/"].map((p) => `<url><loc>${config.siteOrigin + url(p)}</loc></url>`).join("")}</urlset>`,
 );
 console.log(
   `Built 5 pages and 404 at ${base}. ${data.products.length} approved products, ${data.options.length} approved options. Original catalogue assets untouched.`,

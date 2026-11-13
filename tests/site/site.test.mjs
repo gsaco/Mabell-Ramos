@@ -27,7 +27,7 @@ test("a corrupt public catalog does not become an offer", () => {
     }),
   );
 });
-test("all routes are real documents with navigation, semantic form and no WhatsApp numbers", async () => {
+test("all routes are real documents with navigation and only the approved WhatsApp destination", async () => {
   for (const p of [
     "index.html",
     "productos/index.html",
@@ -40,13 +40,20 @@ test("all routes are real documents with navigation, semantic form and no WhatsA
     assert.match(s, /<html lang="es">/);
     assert.match(s, /Ir al contenido/);
     assert.match(s, /site\/site.js/);
-    assert.doesNotMatch(s, /wa\.me|api\.whatsapp/);
+    for (const [, destination] of s.matchAll(
+      /href="(https:\/\/wa\.me\/[^" ]+)"/g,
+    )) {
+      assert.equal(
+        new URL(destination.replaceAll("&amp;", "&")).pathname,
+        "/51932666526",
+      );
+    }
     assert.match(s, /Privacidad/);
   }
 });
 test("legacy catalogue fragment redirects before storefront resources", async () => {
   const s = await read("docs/index.html");
-  assert.ok(s.indexOf("location.replace") < s.indexOf("hero-editorial"));
+  assert.ok(s.indexOf("location.replace") < s.indexOf("site/products.css"));
   assert.match(s, /n>=1&&n<=14\?n:1/);
 });
 test("catalogue requests derivatives until original zoom, one neighbor, no PDF preload", async () => {

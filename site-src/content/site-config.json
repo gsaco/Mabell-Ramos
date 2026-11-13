@@ -10,5 +10,6 @@
     "contactUrl": "https://www.instagram.com/mabellramos.dulces/",
     "retention": null
   },
-  "allowContactPhone": false
+  "allowContactPhone": false,
+  "cateringEmailEnabled": true
 }

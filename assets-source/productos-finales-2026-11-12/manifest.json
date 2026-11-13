@@ -1,0 +1,441 @@
+{
+  "source": "ASSETS FINALES",
+  "date": "2026-11-12",
+  "upscaled": false,
+  "assets": [
+    {
+      "id": "chocoteja-lucuma",
+      "name": "Chocoteja de lúcuma",
+      "family": "chocotejas",
+      "original": {
+        "file": "originals/chocoteja-lucuma.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "336d559c5e69eba654c5369b6b812ce4b2a2217d24d8e39773e6e97eb610a840"
+      },
+      "illustrative_cut": true,
+      "variants": [
+        {
+          "file": "web/chocoteja-lucuma-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 54850,
+          "sha256": "e5dcfa3bb659abb1abb6ff8c7f16204b451d13616b5aba2fbc0f02dd63ca0a98"
+        },
+        {
+          "file": "web/chocoteja-lucuma-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 37524,
+          "sha256": "871b3cce040d6835d3c51e4c37f969c9cd64f44cbf4c5390d5550478c743f9fd"
+        },
+        {
+          "file": "web/chocoteja-lucuma-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 185268,
+          "sha256": "dc32191d3b885771701b44c7a1e090c551064fac4c7411e09bc14d5abbbb536d"
+        },
+        {
+          "file": "web/chocoteja-lucuma-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 120216,
+          "sha256": "7e98c49be88a92a03f3fe8aad63c14b5029f466dc2b38219e6822275b9446a21"
+        },
+        {
+          "file": "web/chocoteja-lucuma-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 387006,
+          "sha256": "3a0e46fba7ce73070c1833d040712d5f6dec1ea94cea4bdfcc073167c4668656"
+        },
+        {
+          "file": "web/chocoteja-lucuma-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 235911,
+          "sha256": "f0f919d3f5a7ff67011174ecf9ba7529e2642ba667c04f20c22943a7cb434a5f"
+        }
+      ]
+    },
+    {
+      "id": "chocoteja-aji",
+      "name": "Chocoteja de ají",
+      "family": "chocotejas",
+      "original": {
+        "file": "originals/chocoteja-aji.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "ca7fcc485bc168405203c09a56ad86a2b385af55a5aa81ec8daa8a1d1efb1cea"
+      },
+      "illustrative_cut": true,
+      "variants": [
+        {
+          "file": "web/chocoteja-aji-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 54368,
+          "sha256": "bc79fc3399b1ad18d41a245a365529df8c79fe948ef579460fc1735fc72b8d10"
+        },
+        {
+          "file": "web/chocoteja-aji-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 35733,
+          "sha256": "74e60f3b1d440205890ee341dd41ab25b996171de5ac0dba65db4912de2a5ab7"
+        },
+        {
+          "file": "web/chocoteja-aji-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 175634,
+          "sha256": "affc014f6a30a2882e77151ddc631e1163c07c7df275933eedac655c83e52b64"
+        },
+        {
+          "file": "web/chocoteja-aji-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 112381,
+          "sha256": "43b773b5608489dbcc1c37f57c8ee6cf88f9281e1c23ef8acc13f7c84d9b3c07"
+        },
+        {
+          "file": "web/chocoteja-aji-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 366982,
+          "sha256": "be4b5203716964fcb56898cfdf33ac5eed4ef1bb66fc409640fd83bbd429a49a"
+        },
+        {
+          "file": "web/chocoteja-aji-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 216262,
+          "sha256": "3d48e1dfeccb7a25a1e789a9d06b4ec772ef5027c229df5a45f1a220453a7c64"
+        }
+      ]
+    },
+    {
+      "id": "chocoteja-frejol-colado",
+      "name": "Chocoteja de frejol colado",
+      "family": "chocotejas",
+      "original": {
+        "file": "originals/chocoteja-frejol-colado.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "c04246549c3abe0f58bc00c9bafa0dd414ceaff571bb828b8a91a1a65c49e26b"
+      },
+      "illustrative_cut": true,
+      "variants": [
+        {
+          "file": "web/chocoteja-frejol-colado-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 56142,
+          "sha256": "357444d428804143cecfa435bb7c38c9650024816dfe6f1584ed9f971a934be2"
+        },
+        {
+          "file": "web/chocoteja-frejol-colado-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 36450,
+          "sha256": "9d63249273eb1eaefb5ce8b28a20d8f028d307da4d4f646ccd8582f9157a9daa"
+        },
+        {
+          "file": "web/chocoteja-frejol-colado-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 178268,
+          "sha256": "c45294c577481cf78361fc45bd579bd4defeba97939a7f30dcf369fbf5969a59"
+        },
+        {
+          "file": "web/chocoteja-frejol-colado-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 116082,
+          "sha256": "13279889f36358ec8e2452ce9b042e23328ba9258eb51da607c57b5243591247"
+        },
+        {
+          "file": "web/chocoteja-frejol-colado-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 377074,
+          "sha256": "35ffc803f3ef1c8fbb7c29069088ebf9f588719335da486efec2d1ce46686e56"
+        },
+        {
+          "file": "web/chocoteja-frejol-colado-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 225254,
+          "sha256": "5cf3b5fc1e06cff80d216ddd4959528e74505f9d7c0542f7b290adf86324d099"
+        }
+      ]
+    },
+    {
+      "id": "chocoteja-manjar-pallar",
+      "name": "Chocoteja de manjar de pallar",
+      "family": "chocotejas",
+      "original": {
+        "file": "originals/chocoteja-manjar-pallar.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "f60d6aee2ca8cb66d97323c14a3d368dc439e3e0492da9e5587d696229b4b52b"
+      },
+      "illustrative_cut": true,
+      "variants": [
+        {
+          "file": "web/chocoteja-manjar-pallar-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 54766,
+          "sha256": "55a66f535c3d2b230a22361e3f3e181670b08ac9f7eb18e6a99e38087eb8f200"
+        },
+        {
+          "file": "web/chocoteja-manjar-pallar-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 36362,
+          "sha256": "3c9a94c8e8176f5742ad0b30a9f1cd2aa8ce04b3ff92cb8b4e9ee478ed56b085"
+        },
+        {
+          "file": "web/chocoteja-manjar-pallar-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 176300,
+          "sha256": "27a3f7a711732724e9b754a79b80f2962c5a8fd13a1529b6ca2d7fafd8f84356"
+        },
+        {
+          "file": "web/chocoteja-manjar-pallar-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 112774,
+          "sha256": "b9b1a78c3360179056ff4d9b31e6444ff1f1b80facf1323d231aacacfc3a8553"
+        },
+        {
+          "file": "web/chocoteja-manjar-pallar-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 365452,
+          "sha256": "e460d13d2bd00c99f7eaed014a035d2ca19616f016ec2c50f0ce7913e70157b4"
+        },
+        {
+          "file": "web/chocoteja-manjar-pallar-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 214958,
+          "sha256": "db4ae1de300efffcd7f448a82ed8c85a8b0fd49c3fd7225226d3957d7c1d9849"
+        }
+      ]
+    },
+    {
+      "id": "alfajor-clasico",
+      "name": "Alfajor clásico",
+      "family": "alfajores",
+      "original": {
+        "file": "originals/alfajor-clasico.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "d96b636da8e90e08bd52672eb9f3cb35534f9def3d14e679711fccadcd970e8d"
+      },
+      "illustrative_cut": false,
+      "variants": [
+        {
+          "file": "web/alfajor-clasico-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 62878,
+          "sha256": "3669cbbd4cc096aa5472508462ef51b0ed0185cf5ae895512cff899bd988e505"
+        },
+        {
+          "file": "web/alfajor-clasico-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 47582,
+          "sha256": "255ce8638b16fc0cb9a58415b33411a3a554fe8f8bd1fd4e0bc9d24053e65262"
+        },
+        {
+          "file": "web/alfajor-clasico-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 200014,
+          "sha256": "2f12eaa7d9f8b61e80ce68bfbc5eac04e8cac0a004b18190fbe798312b7e943d"
+        },
+        {
+          "file": "web/alfajor-clasico-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 143969,
+          "sha256": "518f7b696678b104d3dcac180e7a17646b7b27d99bd91c1f833ed35843ddc6f0"
+        },
+        {
+          "file": "web/alfajor-clasico-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 426722,
+          "sha256": "bbc53e2bc666d1b225d4aeb75ab09d76816277ac3727e281bf27dc9de44f0cd7"
+        },
+        {
+          "file": "web/alfajor-clasico-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 266018,
+          "sha256": "b9ffc51b3fada1a8542d8bb1ebf4cff94abff27e7c2868c215fed37b807006e1"
+        }
+      ]
+    },
+    {
+      "id": "alfajor-canihua",
+      "name": "Alfajor de cañihua",
+      "family": "alfajores",
+      "original": {
+        "file": "originals/alfajor-canihua.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "f350c19f400b27b4894f5b9ff1c252ead494b39830f9e4ee2e2931e62b3e99c9"
+      },
+      "illustrative_cut": false,
+      "variants": [
+        {
+          "file": "web/alfajor-canihua-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 61696,
+          "sha256": "2055efa3c8f43cadc6a2247d849cd669df8e52e8a1d9e0b229538c807bb67b42"
+        },
+        {
+          "file": "web/alfajor-canihua-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 48726,
+          "sha256": "6c6bc6abe1b85007ec166068b68c740d8c9760620ab9927e98bb250c328a84ce"
+        },
+        {
+          "file": "web/alfajor-canihua-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 195090,
+          "sha256": "a1a40ec6bf5296731f42d1f77e9c0e99d0840c3154d86179c5d1f3d7f5d97719"
+        },
+        {
+          "file": "web/alfajor-canihua-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 139564,
+          "sha256": "141ddf29d1c0fd11204aa1151a559a23df4e37e3308c6c92b11703c2ad6bca19"
+        },
+        {
+          "file": "web/alfajor-canihua-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 388506,
+          "sha256": "59b377d2b6cd669d2095645a143ec06210b4906ac415bb9c3b6b5de2ea91a210"
+        },
+        {
+          "file": "web/alfajor-canihua-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 246674,
+          "sha256": "c2749a2e63a42409a942e396c857224ba740847eb0bdc197a7a118b0d89112e2"
+        }
+      ]
+    },
+    {
+      "id": "alfajor-pistacho-arandano",
+      "name": "Alfajor de pistacho y arándano",
+      "family": "alfajores",
+      "original": {
+        "file": "originals/alfajor-pistacho-arandano.png",
+        "width": 1448,
+        "height": 1086,
+        "sha256": "eb5aef055280e860c3711de4d6ed56f7c451a08872a9c63b7b797200fc5cad96"
+      },
+      "illustrative_cut": false,
+      "variants": [
+        {
+          "file": "web/alfajor-pistacho-arandano-final-480.webp",
+          "format": "webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 64014,
+          "sha256": "0243bbb1e8dd80801bcd83411608df3e9b15b1f671ff803712e9f85ed844d1d5"
+        },
+        {
+          "file": "web/alfajor-pistacho-arandano-final-480.avif",
+          "format": "avif",
+          "width": 480,
+          "height": 360,
+          "bytes": 49941,
+          "sha256": "43b624f35c0dcf238761d5602178185fa2a4b6bbec84bf4e52c9e6739e203f99"
+        },
+        {
+          "file": "web/alfajor-pistacho-arandano-final-960.webp",
+          "format": "webp",
+          "width": 960,
+          "height": 720,
+          "bytes": 203134,
+          "sha256": "e313391d0206322d320fa596a84632a643b0ccbbf3435cd1d307985ff27b1c29"
+        },
+        {
+          "file": "web/alfajor-pistacho-arandano-final-960.avif",
+          "format": "avif",
+          "width": 960,
+          "height": 720,
+          "bytes": 146864,
+          "sha256": "eb960d604d18cf9bd1156721a714d4c6a87dec66bcdc65c18cfcd4a1cd9d2d51"
+        },
+        {
+          "file": "web/alfajor-pistacho-arandano-final-1448.webp",
+          "format": "webp",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 404922,
+          "sha256": "4152e5323b84f27edaa7f9e1847e482f062de21f8e5786eeeb903265dae4e05f"
+        },
+        {
+          "file": "web/alfajor-pistacho-arandano-final-1448.avif",
+          "format": "avif",
+          "width": 1448,
+          "height": 1086,
+          "bytes": 262166,
+          "sha256": "11052ab51b9d5aca76fb7e14b71ed49c4dbd36e1f179fce5a4894824243a785d"
+        }
+      ]
+    }
+  ]
+}

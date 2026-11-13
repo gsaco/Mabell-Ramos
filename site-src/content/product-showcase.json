@@ -1,0 +1,116 @@
+{
+  "families": [
+    {
+      "id": "chocotejas",
+      "name": "Chocotejas",
+      "eyebrow": "CHOCOLATE QUE SORPRENDE",
+      "description": "Una cobertura delicada. Cuatro sabores para descubrir lo nuestro.",
+      "page": 2,
+      "flavors": [
+        {
+          "id": "lucuma",
+          "name": "Lúcuma",
+          "image": "chocoteja-lucuma",
+          "description": "La dulzura de la lúcuma, envuelta en chocolate.",
+          "detail": "Un encuentro entre chocolate y lúcuma, un sabor peruano que invita a volver. Consulta las presentaciones y cantidades disponibles para disfrutarlo o compartirlo.",
+          "inquiry": "Hola, me gustaría consultar por chocotejas de lúcuma. ¿Qué presentaciones y cantidades tienen disponibles?"
+        },
+        {
+          "id": "aji",
+          "name": "Ají",
+          "image": "chocoteja-aji",
+          "description": "Un contraste inesperado, para dejarte sorprender.",
+          "detail": "Chocolate y ají se encuentran en una de nuestras propuestas más singulares. Cuéntanos qué te gustaría probar y consulta los detalles de esta combinación.",
+          "inquiry": "Hola, me gustaría conocer las chocotejas de ají. ¿Qué presentaciones tienen disponibles?"
+        },
+        {
+          "id": "frejol-colado",
+          "name": "Frejol colado",
+          "image": "chocoteja-frejol-colado",
+          "description": "Tradición en una delicada versión con mousse.",
+          "detail": "Una receta tradicional en un bocado de chocolate. Esta variedad lleva mousse de frejol colado: una forma diferente de disfrutar un sabor que nos conecta con nuestra tradición.",
+          "inquiry": "Hola, me gustaría consultar por las chocotejas con mousse de frejol colado. ¿Qué presentaciones y cantidades tienen disponibles?"
+        },
+        {
+          "id": "manjar-pallar",
+          "name": "Manjar de pallar",
+          "image": "chocoteja-manjar-pallar",
+          "description": "La suavidad del manjar de pallar, en chocolate.",
+          "detail": "Una chocoteja con manjar de pallar, para descubrir este ingrediente en una preparación dulce. Consulta la presentación y la cantidad que prefieras.",
+          "inquiry": "Hola, me gustaría consultar por chocotejas de manjar de pallar. ¿Qué presentaciones y cantidades tienen disponibles?"
+        }
+      ]
+    },
+    {
+      "id": "alfajores",
+      "name": "Alfajores",
+      "eyebrow": "UN CLÁSICO PARA QUEDARSE",
+      "description": "Tapas delicadas, manjar y azúcar impalpable. Tres formas de disfrutarlos.",
+      "page": 3,
+      "flavors": [
+        {
+          "id": "clasico",
+          "name": "Clásico",
+          "image": "alfajor-clasico",
+          "description": "El encuentro de siempre: tapas delicadas y manjar.",
+          "detail": "Nuestro alfajor redondo con manjar y azúcar impalpable. Un clásico para tu pausa dulce, para compartir o para acompañar una ocasión especial.",
+          "inquiry": "Hola, me gustaría consultar por alfajores clásicos. ¿Qué presentaciones y cantidades tienen disponibles?"
+        },
+        {
+          "id": "canihua",
+          "name": "Cañihua",
+          "image": "alfajor-canihua",
+          "description": "Un ingrediente andino en un alfajor delicado.",
+          "detail": "Una versión con cañihua que conserva la delicadeza de nuestras tapas, el manjar y el acabado con azúcar impalpable. Siempre redondo, con un ingrediente propio para descubrir.",
+          "inquiry": "Hola, me gustaría consultar por alfajores con cañihua. ¿Qué presentaciones y cantidades tienen disponibles?"
+        },
+        {
+          "id": "pistacho-arandano",
+          "name": "Pistacho y arándano",
+          "image": "alfajor-pistacho-arandano",
+          "description": "Pistacho y arándano deshidratado, juntos en un alfajor.",
+          "detail": "Pistacho y arándano deshidratado se reúnen en una sola variedad. Una combinación especial con tapas delicadas y manjar, para disfrutar un alfajor diferente.",
+          "inquiry": "Hola, me gustaría consultar por alfajores de pistacho y arándano. ¿Qué presentaciones y cantidades tienen disponibles?"
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "quote": "…las ricuras de dulces que elaboran.",
+      "author": "@luzramirezojeda",
+      "url": "https://www.instagram.com/p/DdzFxx-EXhM/c/18100571444382499/",
+      "verifiedOn": "2026-11-13",
+      "context": "Fragmento de un comentario público de la comunidad. No implica compra verificada."
+    },
+    {
+      "quote": "Que ricos jajaja yo quiero",
+      "author": "@lasrosasart",
+      "url": "https://www.instagram.com/p/DdUMgLMRCHK/c/18038118164639696/",
+      "verifiedOn": "2026-11-13",
+      "context": "Fragmento literal de comentario público; emojis omitidos. No implica compra verificada."
+    },
+    {
+      "quote": "Me encantaaaa",
+      "author": "@delatierraalaluna_c",
+      "url": "https://www.instagram.com/p/DdSyINrO0VL/c/18084996692678202/",
+      "verifiedOn": "2026-11-13",
+      "context": "Comentario público sobre la publicación de chocotejas de lúcuma. No implica compra verificada."
+    },
+    {
+      "quote": "Me encantan son riquísimos 😍",
+      "author": "@rebecamontalvo_",
+      "url": "https://www.instagram.com/p/DckZgIzkeiN/c/18131218771653820/",
+      "verifiedOn": "2026-11-13",
+      "context": "Comentario público literal en la publicación de Ana Joya Ramos sobre los dulces de Mabell Ramos en la feria de Jesús María. No implica compra verificada."
+    },
+    {
+      "quote": "Tienen sabores deliciosos y nuevos para las chocotejas…",
+      "author": "@dianag.cordova",
+      "url": "https://www.instagram.com/stories/highlights/18079143227047771/",
+      "sourceType": "story",
+      "verifiedOn": "2026-11-13",
+      "context": "Fragmento literal de una historia de Diana compartida en el destacado público CLIENTES de Mabell Ramos. La historia muestra una chocoteja y recomienda sus sabores; autoría comprobada mediante la etiqueta del perfil. El enlace abre el destacado, no una historia individual. No implica compra verificada."
+    }
+  ]
+}
