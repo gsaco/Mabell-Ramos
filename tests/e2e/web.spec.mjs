@@ -449,7 +449,8 @@ test("no JavaScript keeps content and alternative contact and cannot leak form i
   const context = await browser.newContext({ javaScriptEnabled: false });
   const p = await context.newPage();
   await p.goto(local + "productos/");
-  await expect(p.locator("h1")).toContainText("Chocotejas");
+  await expect(p.locator("h1")).toContainText("Mabell Ramos");
+  await expect(p.locator("#titulo-chocotejas")).toBeVisible();
   await expect(p.locator(".submit-inquiry")).toBeDisabled();
   await expect(p.locator(".product-order .external")).toBeVisible();
   await context.close();

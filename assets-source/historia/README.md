@@ -22,3 +22,7 @@ ffmpeg -ss 16 -i "EMPRENDEDORAS 3.01.mp4" -frames:v 1 -q:v 3 mabell-ramos-poster
 El build copia los recursos a `docs/assets/web/historia/`. Las vistas previas portátiles incluyen el video en su subcarpeta `media/`.
 
 Referencias técnicas: [carga de video bajo demanda](https://web.dev/articles/lazy-loading-video) y [MP4 con faststart](https://ffmpeg.org/ffmpeg-formats.html).
+
+## Marca del cierre utilizada en el encabezado
+
+`logo-gobierno-peru-cierre.png` procede del fotograma 99,5 s de la película completa: escudo y texto «Gobierno del Perú». Es diferente de la placa del MIMP del segundo 98. Se extrae el área `950:250:480:420` sin redibujar el símbolo. CSS lo muestra en tono claro mediante escala de grises, inversión y composición `screen`, para eliminar visualmente el fondo blanco sobre el morado. La página no añade una afirmación de aval comercial.

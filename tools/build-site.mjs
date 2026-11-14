@@ -494,6 +494,7 @@ for (const file of [
   "mabell-ramos-historia.mp4",
   "mabell-ramos-poster-ana-joya.jpg",
   "logo-peru-mimp.png",
+  "logo-gobierno-peru-cierre.png",
 ]) {
   await copyFile(
     path.join(root, "assets-source/historia", file),
