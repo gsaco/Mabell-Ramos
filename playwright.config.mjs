@@ -1,4 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
+const fixturePort = Number(process.env.E2E_FIXTURE_PORT || 4195);
 export default defineConfig({
   testDir: "tests/e2e",
   fullyParallel: false,
@@ -33,9 +34,8 @@ export default defineConfig({
       reuseExistingServer: false,
     },
     {
-      command:
-        "PORT=4195 LOCAL_RECEIVER_PORT=8794 SITE_OUTPUT_DIR=.local-data/fixture-site node tools/dev-server.mjs --local-receiver",
-      url: "http://127.0.0.1:4195/Mabell-Ramos/",
+      command: `PORT=${fixturePort} LOCAL_RECEIVER_PORT=8794 SITE_OUTPUT_DIR=.local-data/fixture-site node tools/dev-server.mjs --local-receiver`,
+      url: `http://127.0.0.1:${fixturePort}/Mabell-Ramos/`,
       reuseExistingServer: false,
     },
   ],

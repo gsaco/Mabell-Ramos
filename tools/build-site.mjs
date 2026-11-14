@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { validateCatalog } from "../site-src/scripts/catalog-validation.mjs";
 import { renderCatering } from "./catering-page.mjs";
@@ -18,6 +19,11 @@ const outRoot = process.env.SITE_OUTPUT_DIR
 const editorial = await json("editorial.json");
 const imagery = await json("editorial-images.json");
 const productShowcase = await json("product-showcase.json");
+const productRevision = createHash("sha256")
+  .update(await readFile(path.join(root, "site-src/styles/products.css")))
+  .update(await readFile(path.join(root, "site-src/scripts/products.js")))
+  .digest("hex")
+  .slice(0, 12);
 const productAssetRoot = path.join(
   root,
   "assets-source/productos-finales-2026-11-12",
@@ -319,7 +325,7 @@ function privacy() {
 }
 function layout(route, title, description, body, extraHead = "") {
   const absolute = config.siteOrigin + url(route);
-  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#432653"><meta name="description" content="${e(description)}"><title>${e(title)} · Mabell Ramos</title><link rel="canonical" href="${absolute}"><meta property="og:title" content="${e(title)} · Mabell Ramos"><meta property="og:description" content="${e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="${absolute}"><meta property="og:image" content="${config.siteOrigin + asset("social-inicio-v2.jpg")}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="${asset("favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="${asset("apple-touch-icon.png")}">${extraHead}<link rel="preload" href="${asset("inter-400.woff2")}" as="font" type="font/woff2" crossorigin><link rel="preload" href="${asset("bodoni-moda-600.woff2")}" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="${url("site/site.css")}"><script type="module" src="${url("site/site.js")}"></script>${route === "catering/" ? `<link rel="stylesheet" href="${url("site/catering.css")}"><script type="module" src="${url("site/catering.js")}"></script>` : ""}${route === "productos/" ? `<link rel="stylesheet" href="${url("site/products.css")}"><script type="module" src="${url("site/products.js")}"></script>` : ""}</head><body data-page="${route}" data-site-base="${base}">${nav(route)}<main id="contenido">${body}</main>${footer(route)}</body></html>`;
+  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#432653"><meta name="description" content="${e(description)}"><title>${e(title)} · Mabell Ramos</title><link rel="canonical" href="${absolute}"><meta property="og:title" content="${e(title)} · Mabell Ramos"><meta property="og:description" content="${e(description)}"><meta property="og:type" content="website"><meta property="og:url" content="${absolute}"><meta property="og:image" content="${config.siteOrigin + asset("social-inicio-v2.jpg")}"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="${asset("favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="${asset("apple-touch-icon.png")}">${extraHead}<link rel="preload" href="${asset("inter-400.woff2")}" as="font" type="font/woff2" crossorigin><link rel="preload" href="${asset("bodoni-moda-600.woff2")}" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="${url("site/site.css")}"><script type="module" src="${url("site/site.js")}"></script>${route === "catering/" ? `<link rel="stylesheet" href="${url("site/catering.css")}"><script type="module" src="${url("site/catering.js")}"></script>` : ""}${route === "productos/" ? `<link rel="stylesheet" href="${url(`site/products.css?v=${productRevision}`)}"><script type="module" src="${url(`site/products.js?v=${productRevision}`)}"></script>` : ""}</head><body data-page="${route}" data-site-base="${base}">${nav(route)}<main id="contenido">${body}</main>${footer(route)}</body></html>`;
 }
 async function save(route, content) {
   const out = path.join(outRoot, route);
@@ -483,6 +489,13 @@ await copyFile(
   path.join(root, "site-src/scripts/products.js"),
   path.join(outRoot, "site/products.js"),
 );
+await mkdir(path.join(outRoot, "assets/web/historia"), { recursive: true });
+for (const file of ["mabell-ramos-historia.mp4", "mabell-ramos-poster.jpg"]) {
+  await copyFile(
+    path.join(root, "assets-source/historia", file),
+    path.join(outRoot, "assets/web/historia", file),
+  );
+}
 await mkdir(path.join(outRoot, "assets/web/productos"), { recursive: true });
 for (const [assetRoot, collection] of [
   [productAssetRoot, productAssets],

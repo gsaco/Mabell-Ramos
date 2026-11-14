@@ -1,4 +1,5 @@
 import http from "node:http";
+import { createReadStream } from "node:fs";
 import path from "node:path";
 import { readFile, stat } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
@@ -24,6 +25,7 @@ const mime = {
   ".woff2": "font/woff2",
   ".txt": "text/plain; charset=utf-8",
   ".xml": "application/xml",
+  ".mp4": "video/mp4",
 };
 const server = http.createServer(async (req, res) => {
   try {
@@ -65,6 +67,50 @@ const server = http.createServer(async (req, res) => {
     let file = target;
     const s = await stat(file);
     if (s.isDirectory()) file = path.join(file, "index.html");
+    if (path.extname(file) === ".mp4") {
+      const { size } = await stat(file);
+      const headers = {
+        "Content-Type": "video/mp4",
+        "Accept-Ranges": "bytes",
+        "Cache-Control": "no-cache",
+      };
+      let start = 0,
+        end = size - 1;
+      if (req.headers.range) {
+        const match = /^bytes=(\d*)-(\d*)$/.exec(req.headers.range);
+        if (!match || (!match[1] && !match[2])) {
+          res.writeHead(416, {
+            ...headers,
+            "Content-Range": `bytes */${size}`,
+          });
+          res.end();
+          return;
+        }
+        start = match[1]
+          ? Number(match[1])
+          : Math.max(0, size - Number(match[2]));
+        end =
+          match[1] && match[2]
+            ? Math.min(Number(match[2]), size - 1)
+            : size - 1;
+        if (start > end || start >= size) {
+          res.writeHead(416, {
+            ...headers,
+            "Content-Range": `bytes */${size}`,
+          });
+          res.end();
+          return;
+        }
+        headers["Content-Range"] = `bytes ${start}-${end}/${size}`;
+      }
+      res.writeHead(req.headers.range ? 206 : 200, {
+        ...headers,
+        "Content-Length": end - start + 1,
+      });
+      if (req.method === "HEAD") res.end();
+      else createReadStream(file, { start, end }).pipe(res);
+      return;
+    }
     const body = await readFile(file);
     res.setHeader(
       "Content-Type",

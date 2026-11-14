@@ -14,6 +14,7 @@ export function renderProductShowcase({
     message = "Hola, Mabell Ramos. Me interesan sus chocotejas y alfajores. ¿Me ayudan a elegir?",
   ) => `https://wa.me/51932666526?text=${encodeURIComponent(message)}`;
   const whatsappIcon = `<svg class="icon whatsapp-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a9 9 0 0 1-13.4 7.84L3 20.5l1.2-4.43A9 9 0 1 1 21 11.5Z"/><path d="M8.1 7.3c.3-.3.7-.2.9.2l1 2c.2.3.1.6-.2.9l-.6.6c.7 1.5 1.8 2.6 3.4 3.3l.6-.7c.2-.3.5-.4.8-.2l2 1c.4.2.5.5.3.9-.5 1.1-1.4 1.6-2.5 1.3-3.6-.9-6.4-3.7-7.3-7.1-.3-1 .3-1.8 1.1-2.2Z"/></svg>`;
+  const playIcon = `<svg class="story-play-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 4.5v15l12-7.5z"/></svg>`;
   const assets = new Map(manifest.assets.map((a) => [a.id, a]));
   const photoUrl = (file) => asset(`productos/${file.split("/").pop()}`);
   const srcset = (id, format) =>
@@ -37,6 +38,13 @@ export function renderProductShowcase({
   const family = (f) =>
     `<section class="product-family product-family--${f.id}" id="${f.id}" aria-labelledby="titulo-${f.id}"><div class="product-container"><div class="family-heading"><div><p class="eyebrow">${e(f.eyebrow)}</p><h2 id="titulo-${f.id}">${e(f.name)}<span class="flavor-count">${f.flavors.length} sabores</span></h2><p class="family-description">${e(f.description)}</p></div></div><div id="producto-${f.id}" class="flavor-grid flavor-grid--${f.flavors.length}">${f.flavors.map((p) => flavorCard(p, f)).join("")}</div></div></section>`;
   return `<section class="product-hero" aria-labelledby="product-title"><div class="product-container product-hero-content"><div class="page-intro product-hero-copy"><p class="eyebrow">PASTELERÍA AFROPERUANA</p><h1 id="product-title">Chocotejas y alfajores.<em>Dulces con raíz.</em></h1></div><div class="product-hero-aside"><p class="product-hero-lead">Elige tu sabor favorito.<br>Te ayudamos con tu pedido por WhatsApp.</p><div class="product-hero-actions"><a class="button product-button-light" href="${e(wa())}">Consultar por WhatsApp ${svg("arrow-right")}</a><a class="product-explore" href="#chocotejas">Explorar sabores ${svg("chevron-down")}</a></div></div></div></section>
+  <section class="product-story" aria-labelledby="story-title"><div class="product-container product-story-inner">
+    <div class="product-story-media">
+      <video id="brand-story-video" class="product-story-video" controls playsinline preload="none" width="1920" height="1080" poster="${asset("historia/mabell-ramos-poster.jpg")}" aria-label="Conoce nuestra historia: video completo, 1 minuto 40 segundos"><source src="${asset("historia/mabell-ramos-historia.mp4")}" type="video/mp4">Tu navegador no admite la reproducción de este video.</video>
+      <button class="story-poster-play" type="button" data-story-play aria-controls="brand-story-video" aria-label="Reproducir video completo de Mabell Ramos, 1 minuto 40 segundos" hidden><span class="story-poster-controls"><span class="story-play-circle">${playIcon}</span><span class="story-duration">1:40</span></span></button>
+    </div>
+    <div class="product-story-copy"><p class="eyebrow">MABELL RAMOS</p><h2 id="story-title">Conoce nuestra historia.</h2><p class="product-story-description">Pastelería con raíz afroperuana.</p><button class="button story-watch" type="button" data-story-play aria-controls="brand-story-video" hidden>${playIcon}<span data-story-label>Ver video completo · 1:40</span></button><span class="story-no-js-duration">Video completo · 1:40</span><p class="story-status" role="status" hidden></p></div>
+  </div></section>
   <nav class="product-navigation" aria-label="Familias de productos" id="sabores"><div class="product-container"><div class="product-nav-links"><a href="#chocotejas" aria-current="location">Chocotejas</a><a href="#alfajores">Alfajores</a></div></div></nav>
   ${content.families.map(family).join("")}
   ${commercial}

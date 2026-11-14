@@ -1,6 +1,6 @@
 // Export a connected, self-contained snapshot. Internal navigation must never
 // leave this snapshot for GitHub Pages, which may contain an older release.
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, copyFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -85,6 +85,11 @@ commonJS =
   `const configPromise = Promise.resolve(${JSON.stringify(runtime)});\n` +
   commonJS.slice(configEnd);
 await mkdir(out, { recursive: true });
+await mkdir(path.join(out, "media"), { recursive: true });
+await copyFile(
+  path.join(root, "docs/assets/web/historia/mabell-ramos-historia.mp4"),
+  path.join(out, "media/mabell-ramos-historia.mp4"),
+);
 for (const page of pages) {
   let html = await readFile(
     path.join(root, "docs", page.route, "index.html"),
@@ -98,6 +103,11 @@ for (const page of pages) {
     html = html.replace(/<script>if\(\/\^#pagina-[\s\S]*?<\/script>/, "");
   html = html.replace(/<source\b[^>]*type="image\/avif"[^>]*>/g, "");
   html = await replaceAsync(html, /<(img|source)\b[^>]*>/g, async ([tag]) => {
+    if (tag.includes('type="video/mp4"'))
+      return tag.replace(
+        /src="[^"]+"/,
+        'src="media/mabell-ramos-historia.mp4"',
+      );
     const set = tag.match(/srcset="([^"]+)"/);
     const src = set
       ? set[1].split(", ").at(-1).split(" ")[0]
@@ -110,6 +120,14 @@ for (const page of pages) {
       ` ${tag.startsWith("<source") ? "srcset" : "src"}="${await dataUrl(file)}">`,
     );
   });
+  html = await replaceAsync(
+    html,
+    /poster="([^"]+)"/g,
+    async ([attribute, src]) =>
+      src.startsWith(base + "assets/")
+        ? `poster="${await dataUrl(path.join(root, "docs", src.slice(base.length)))}"`
+        : attribute,
+  );
   html = await replaceAsync(
     html,
     /<link\b[^>]*rel="(?:icon|apple-touch-icon)"[^>]*>/g,

@@ -137,6 +137,195 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   width: 20px;
   height: 20px;
 }
+/* The complete brand film sits between the introduction and the collection. */
+.product-story {
+  background: #efe5ee;
+  background: linear-gradient(115deg, #f0e5ee 0%, #eee2ed 55%, #f3eaf1 100%);
+  border-block: 1px solid #e2d2df;
+}
+.product-story-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(36px, 4vw, 60px);
+  padding-block: 48px;
+}
+.product-story-media {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 2px solid #69405f;
+  border-radius: 18px;
+  background: #31172f;
+  box-shadow: 0 10px 32px #5727490d;
+}
+.product-story-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  aspect-ratio: 16 / 9;
+}
+.product-story-video:fullscreen {
+  border-radius: 0;
+  background: #000;
+}
+.product-story-media:focus-within {
+  outline: 3px solid #a77c34;
+  outline-offset: 5px;
+}
+.story-poster-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  padding: 22px;
+  border: 0;
+  border-radius: inherit;
+  cursor: pointer;
+  color: var(--product-plum);
+  background: transparent;
+}
+.story-poster-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.story-play-circle {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--product-cream);
+  box-shadow: 0 3px 16px #31172f30;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease;
+}
+.story-play-circle svg {
+  width: 26px;
+  height: 26px;
+  margin-left: 2px;
+}
+.story-duration {
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: var(--product-cream);
+  background: #31172fd9;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.product-story-copy .eyebrow {
+  color: #754464;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  margin: 0 0 20px;
+}
+.product-story-copy h2 {
+  max-width: 430px;
+  color: var(--product-plum);
+  font:
+    600 clamp(36px, 3.65vw, 50px)/1.06 Bodoni,
+    Georgia,
+    serif;
+  letter-spacing: -1px;
+  text-wrap: balance;
+  margin: 0;
+}
+.product-story-description {
+  margin: 20px 0 30px;
+  color: #73546b;
+  font-size: clamp(15px, 1.35vw, 18px);
+  line-height: 1.6;
+}
+.story-watch {
+  gap: 12px;
+  padding: 12px 22px;
+  min-height: 48px;
+  border-radius: 999px;
+  color: var(--product-cream);
+  background: var(--product-plum);
+  border-color: var(--product-plum);
+  font-size: 14px;
+}
+.story-play-icon {
+  flex: 0 0 auto;
+}
+.story-no-js-duration,
+.story-status {
+  color: #73546b;
+  font-size: 13px;
+}
+.story-status {
+  margin: 16px 0 0;
+  line-height: 1.5;
+}
+.product-story.is-enhanced .story-no-js-duration,
+.product-story [hidden] {
+  display: none;
+}
+@media (hover: hover) {
+  .story-poster-play:hover .story-play-circle {
+    transform: scale(1.08);
+    background: #fff;
+  }
+  .story-watch:hover {
+    color: var(--product-cream);
+    background: var(--product-deep);
+    border-color: var(--product-deep);
+  }
+}
+@media (max-width: 1000px) {
+  .product-story-inner {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 28px;
+    padding-block: 36px;
+  }
+  .product-story-copy h2 {
+    font-size: 38px;
+  }
+  .story-watch {
+    font-size: 13px;
+    padding-inline: 17px;
+  }
+}
+@media (max-width: 760px) {
+  .product-story-inner {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-block: 28px 32px;
+  }
+  .product-story-media {
+    border-radius: 13px;
+  }
+  .product-story-copy .eyebrow {
+    margin-bottom: 12px;
+    font-size: 9px;
+  }
+  .product-story-copy h2 {
+    font-size: clamp(32px, 7.5vw, 42px);
+    max-width: none;
+  }
+  .product-story-description {
+    margin: 12px 0 20px;
+    font-size: 15px;
+  }
+  .story-poster-play {
+    padding: 14px;
+  }
+  .story-play-circle {
+    width: 46px;
+    height: 46px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-play-circle {
+    transition: none;
+  }
+}
 .product-navigation {
   position: sticky;
   top: var(--product-header-height);

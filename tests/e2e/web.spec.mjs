@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 const local = "http://127.0.0.1:4194/Mabell-Ramos/";
-const fixture = "http://127.0.0.1:4195/Mabell-Ramos/";
+const fixture = `http://127.0.0.1:${process.env.E2E_FIXTURE_PORT || 4195}/Mabell-Ramos/`;
 async function fill(form) {
   if (await form.locator("[name=requestText]").count())
     await form.locator("[name=requestText]").fill("Chocotejas para consultar");
