@@ -14,12 +14,12 @@ body[data-page="productos/"] {
   background: var(--product-cream);
 }
 .product-container {
-  width: min(100%, 1440px);
+  width: min(100%, 1256px);
   margin-inline: auto;
   padding-inline: 48px;
 }
 body[data-page="productos/"] .header-inner {
-  max-width: 1440px;
+  max-width: 1256px;
 }
 body[data-page="productos/"] .site-header {
   background: #fcf8f1f5;
@@ -262,6 +262,25 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
 .story-status {
   margin: 16px 0 0;
   line-height: 1.5;
+}
+.story-credit {
+  max-width: 300px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #d3bfd0;
+}
+.story-credit img {
+  display: block;
+  width: 264px;
+  max-width: 100%;
+  height: auto;
+}
+.story-credit p {
+  margin: 12px 0 0;
+  color: #6d5267;
+  font-size: 11px;
+  line-height: 1.6;
+  max-width: 265px;
 }
 .product-story.is-enhanced .story-no-js-duration,
 .product-story [hidden] {

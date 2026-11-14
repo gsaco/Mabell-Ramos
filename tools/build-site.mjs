@@ -490,7 +490,11 @@ await copyFile(
   path.join(outRoot, "site/products.js"),
 );
 await mkdir(path.join(outRoot, "assets/web/historia"), { recursive: true });
-for (const file of ["mabell-ramos-historia.mp4", "mabell-ramos-poster.jpg"]) {
+for (const file of [
+  "mabell-ramos-historia.mp4",
+  "mabell-ramos-poster-ana-joya.jpg",
+  "logo-peru-mimp.png",
+]) {
   await copyFile(
     path.join(root, "assets-source/historia", file),
     path.join(outRoot, "assets/web/historia", file),
