@@ -1,65 +1,34 @@
-// Full brand film: explicit playback only; the native player remains the fallback.
+// Full brand film: one play target, then standard accessible video controls.
 const story = document.querySelector(".product-story");
 if (story) {
   const video = story.querySelector("video");
   const posterPlay = story.querySelector(".story-poster-play");
-  const watchButton = story.querySelector(".story-watch");
-  const label = story.querySelector("[data-story-label]");
   const status = story.querySelector(".story-status");
-  let started = false;
   video.controls = false;
   story.classList.add("is-enhanced");
   posterPlay.hidden = false;
-  watchButton.hidden = false;
-  const updatePlayback = () => {
-    const playing = !video.paused && !video.ended;
-    story.classList.toggle("is-playing", playing);
-    watchButton
-      .querySelector("path")
-      .setAttribute(
-        "d",
-        playing ? "M6 4h4v16H6z M14 4h4v16h-4z" : "M7 4.5v15l12-7.5z",
-      );
-    label.textContent = playing
-      ? "Pausar video"
-      : video.ended
-        ? "Volver a ver · 1:40"
-        : started
-          ? "Continuar video"
-          : "Ver video completo · 1:40";
-  };
-  story.querySelectorAll("[data-story-play]").forEach((button) => {
-    button.addEventListener("click", async () => {
-      if (!video.paused && !video.ended) {
-        video.pause();
-        return;
-      }
-      status.hidden = true;
-      posterPlay.hidden = true;
-      video.controls = true;
-      if (button === posterPlay) video.focus({ preventScroll: true });
-      if (video.error) video.load();
-      try {
-        await video.play();
-        started = true;
-        updatePlayback();
-      } catch {
-        status.textContent = "Pulsa reproducir en el video para comenzar.";
-        status.hidden = false;
-      }
-    });
+  posterPlay.addEventListener("click", async () => {
+    status.hidden = true;
+    posterPlay.hidden = true;
+    video.controls = true;
+    video.focus({ preventScroll: true });
+    if (video.error) video.load();
+    try {
+      await video.play();
+    } catch {
+      posterPlay.hidden = false;
+      status.textContent = "Pulsa reproducir en el video para comenzar.";
+      status.hidden = false;
+    }
   });
   video.addEventListener("play", () => {
-    started = true;
     posterPlay.hidden = true;
     status.hidden = true;
-    updatePlayback();
   });
-  video.addEventListener("pause", updatePlayback);
-  video.addEventListener("ended", updatePlayback);
   video.addEventListener("error", () => {
+    posterPlay.hidden = false;
     status.textContent =
-      "No se pudo cargar el video. Pulsa el botón para volver a intentarlo.";
+      "No se pudo cargar el video. Pulsa reproducir para volver a intentarlo.";
     status.hidden = false;
   });
 }

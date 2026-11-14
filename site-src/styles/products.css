@@ -34,25 +34,22 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   outline: 3px solid #a77c34;
   outline-offset: 5px;
 }
-/* A compact, typographic introduction keeps the collection in view. */
+/* One compact introduction: products, film and a clear path to order. */
 .product-hero {
   color: var(--product-cream);
   background: #512640;
 }
-.product-hero-content {
-  display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
-  align-items: center;
-  gap: 64px;
-  padding-block: 52px 54px;
-}
 .product-hero-copy.page-intro {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  grid-column: 1 / -1;
   padding: 0;
   margin: 0;
   max-width: none;
 }
 .product-hero .eyebrow {
-  margin-bottom: 19px;
+  margin: 0 0 10px;
   color: #e8cee0;
   font-size: 10px;
   letter-spacing: 2.2px;
@@ -60,69 +57,26 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
 .product-hero h1 {
   color: var(--product-cream);
   font:
-    600 clamp(44px, 4.25vw, 62px)/1.1 Bodoni,
+    600 clamp(36px, 4vw, 52px)/1.05 Bodoni,
     Georgia,
     serif;
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
   margin: 0;
-  text-wrap: balance;
-}
-.product-hero h1 em {
-  display: block;
-  margin-top: 8px;
-  font-size: 0.83em;
-  font-style: normal;
-  color: #dcb9d2;
 }
 .product-hero-lead {
-  margin: 0 0 22px;
-  color: #f0e0e9;
+  margin: 12px 0 20px;
+  color: #e8d6e2;
   font-size: 15px;
-  line-height: 1.75;
+  line-height: 1.6;
+  max-width: 330px;
 }
 .product-hero-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 22px;
+  gap: 16px 24px;
 }
-@media (max-width: 1100px) {
-  .product-hero-content {
-    gap: 40px;
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  }
-}
-@media (max-width: 760px) {
-  .product-hero-content {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    padding-block: 34px 30px;
-  }
-  .product-hero .eyebrow {
-    font-size: 9px;
-    margin-bottom: 15px;
-    letter-spacing: 1.8px;
-  }
-  .product-hero h1 {
-    font-size: clamp(39px, 8.8vw, 56px);
-    letter-spacing: -1px;
-    text-wrap: initial;
-  }
-  .product-hero h1 em {
-    margin-top: 5px;
-  }
-  .product-hero-lead {
-    font-size: 14px;
-    line-height: 1.65;
-    margin-bottom: 17px;
-  }
-  .product-hero .product-button-light {
-    min-height: 48px;
-    padding: 11px 19px;
-    font-size: 13px;
-    gap: 14px;
-  }
-}
+
 .product-button-light {
   color: var(--product-plum);
   background: var(--product-cream);
@@ -137,18 +91,16 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   width: 20px;
   height: 20px;
 }
-/* The complete brand film sits between the introduction and the collection. */
+/* The complete film shares the hero with the product introduction. */
 .product-story {
-  background: #efe5ee;
-  background: linear-gradient(115deg, #f0e5ee 0%, #eee2ed 55%, #f3eaf1 100%);
-  border-block: 1px solid #e2d2df;
+  background: radial-gradient(ellipse at 15% 0%, #60334f 0%, #512640 70%);
 }
 .product-story-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(36px, 4vw, 60px);
-  padding-block: 48px;
+  gap: 26px 52px;
+  padding-block: 32px 38px;
 }
 .product-story-media {
   position: relative;
@@ -218,45 +170,39 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   font-size: 13px;
   font-variant-numeric: tabular-nums;
 }
-.product-story-copy .eyebrow {
-  color: #754464;
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  margin: 0 0 20px;
-}
 .product-story-copy h2 {
-  max-width: 430px;
-  color: var(--product-plum);
+  color: var(--product-cream);
   font:
-    600 clamp(36px, 3.65vw, 50px)/1.06 Bodoni,
+    600 30px/1.1 Bodoni,
     Georgia,
     serif;
-  letter-spacing: -1px;
-  text-wrap: balance;
+  letter-spacing: -0.3px;
   margin: 0;
 }
-.product-story-description {
-  margin: 20px 0 30px;
-  color: #73546b;
-  font-size: clamp(15px, 1.35vw, 18px);
-  line-height: 1.6;
+.story-about {
+  margin-top: 22px;
+}
+.story-about > p:first-child {
+  font-size: 12px;
+  color: #dbc2d3;
+  margin: 0 0 4px;
 }
 .story-watch {
-  gap: 12px;
-  padding: 12px 22px;
-  min-height: 48px;
-  border-radius: 999px;
+  gap: 9px;
+  padding: 6px 0;
+  min-height: 32px;
+  border: 0;
+  border-radius: 0;
   color: var(--product-cream);
-  background: var(--product-plum);
-  border-color: var(--product-plum);
-  font-size: 14px;
+  background: transparent;
+  font-size: 13px;
 }
 .story-play-icon {
   flex: 0 0 auto;
 }
 .story-no-js-duration,
 .story-status {
-  color: #73546b;
+  color: #e8d6e2;
   font-size: 13px;
 }
 .story-status {
@@ -265,19 +211,19 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
 }
 .story-credit {
   max-width: 300px;
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid #d3bfd0;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid #ffffff26;
 }
 .story-credit img {
   display: block;
-  width: 264px;
+  width: 228px;
   max-width: 100%;
   height: auto;
 }
 .story-credit p {
-  margin: 12px 0 0;
-  color: #6d5267;
+  margin: 9px 0 0;
+  color: #ddc8d6;
   font-size: 11px;
   line-height: 1.6;
   max-width: 265px;
@@ -293,44 +239,59 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   }
   .story-watch:hover {
     color: var(--product-cream);
-    background: var(--product-deep);
-    border-color: var(--product-deep);
+    background: transparent;
+    text-decoration: underline;
   }
 }
 @media (max-width: 1000px) {
   .product-story-inner {
-    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-    gap: 28px;
-    padding-block: 36px;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 24px 30px;
   }
   .product-story-copy h2 {
-    font-size: 38px;
+    font-size: 27px;
   }
-  .story-watch {
+  .product-button-light {
+    padding: 12px 18px;
+    gap: 14px;
     font-size: 13px;
-    padding-inline: 17px;
   }
 }
 @media (max-width: 760px) {
   .product-story-inner {
     grid-template-columns: 1fr;
-    gap: 25px;
-    padding-block: 28px 32px;
+    gap: 22px;
+    padding-block: 26px 28px;
   }
   .product-story-media {
     border-radius: 13px;
   }
-  .product-story-copy .eyebrow {
-    margin-bottom: 12px;
-    font-size: 9px;
+  .product-hero h1 {
+    font-size: clamp(35px, 8.5vw, 48px);
   }
-  .product-story-copy h2 {
-    font-size: clamp(32px, 7.5vw, 42px);
+  .product-hero-lead {
+    margin: 10px 0 16px;
+    font-size: 14px;
     max-width: none;
   }
-  .product-story-description {
-    margin: 12px 0 20px;
-    font-size: 15px;
+  .product-hero-actions {
+    gap: 16px;
+  }
+  .story-about {
+    margin-top: 18px;
+  }
+  .story-credit {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    max-width: none;
+  }
+  .story-credit img {
+    width: 170px;
+  }
+  .story-credit p {
+    margin: 0;
+    font-size: 10px;
   }
   .story-poster-play {
     padding: 14px;
@@ -338,6 +299,13 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   .story-play-circle {
     width: 46px;
     height: 46px;
+  }
+}
+@media (max-width: 380px) {
+  .story-credit {
+    align-items: start;
+    flex-direction: column;
+    gap: 9px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -945,5 +913,23 @@ body[data-page="productos/"] .site-header,
   .product-order-actions .product-instagram {
     width: auto;
     justify-content: center;
+  }
+}
+
+.hero-brand-logo {
+  width: 76px;
+  height: 76px;
+  flex: 0 0 auto;
+}
+@media (max-width: 760px) {
+  .hero-brand-logo {
+    width: 58px;
+    height: 58px;
+  }
+  .product-hero-copy.page-intro {
+    gap: 14px;
+  }
+  .product-hero h1 {
+    font-size: clamp(32px, 8vw, 44px);
   }
 }

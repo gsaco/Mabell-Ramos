@@ -23,11 +23,10 @@ test("the full film loads only after a click and supports pause, resume and seek
   );
   expect(await video.evaluate((v) => v.controls && !v.muted)).toBe(true);
   await expect(page.locator(".story-poster-play")).toBeHidden();
-  await page.getByRole("button", { name: "Pausar video", exact: true }).click();
+  await expect(page.locator(".story-watch")).toHaveCount(0);
+  await video.evaluate((v) => v.pause());
   expect(await video.evaluate((v) => v.paused)).toBe(true);
-  await page
-    .getByRole("button", { name: "Continuar video", exact: true })
-    .click();
+  await video.evaluate((v) => v.play());
   await expect.poll(() => video.evaluate((v) => v.paused)).toBe(false);
   // Verify that the ending is included and accessible, not just the opening clip.
   await video.evaluate((v) => {
@@ -39,13 +38,12 @@ test("the full film loads only after a click and supports pause, resume and seek
   await expect
     .poll(() => video.evaluate((v) => v.ended), { timeout: 15000 })
     .toBe(true);
-  await expect(page.locator(".story-watch")).toHaveText("Volver a ver · 1:40");
-  await page.locator(".story-watch").click();
+  await video.evaluate((v) => v.play());
   await expect.poll(() => video.evaluate((v) => v.currentTime)).toBeLessThan(5);
   expect(mediaRequests.length).toBeGreaterThan(0);
 });
 
-test("the video band follows the hero, preserves the frame and fits desktop and mobile", async ({
+test("the compact hero includes the film, preserves the frame and fits desktop and mobile", async ({
   page,
 }, info) => {
   for (const width of [320, 390, 768, 1440]) {
@@ -59,7 +57,7 @@ test("the video band follows the hero, preserves the frame and fits desktop and 
         copy = rect(".product-story-copy"),
         nav = rect(".product-navigation");
       return {
-        gap: story.top - hero.bottom,
+        gap: story.top - hero.top,
         navGap: nav.top - story.bottom,
         ratio: video.width / video.height,
         copyTop: copy.top,
@@ -93,7 +91,6 @@ test("native controls still work without JavaScript, and the media supports byte
   await page.goto("http://127.0.0.1:4194/Mabell-Ramos/productos/");
   await expect(page.locator("video")).toHaveAttribute("controls", "");
   await expect(page.locator(".story-poster-play")).toBeHidden();
-  await expect(page.locator(".story-no-js-duration")).toBeVisible();
   const source = await page.locator("video source").getAttribute("src");
   const response = await request.get(source, {
     headers: { Range: "bytes=0-63" },
