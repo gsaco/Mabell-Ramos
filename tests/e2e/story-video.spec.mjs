@@ -60,8 +60,8 @@ test("the compact hero includes the film, preserves the frame and fits desktop a
         gap: story.top - hero.top,
         navGap: nav.top - story.bottom,
         ratio: video.width / video.height,
-        copyTop: copy.top,
-        videoBottom: video.bottom,
+        copyBottom: copy.bottom,
+        videoTop: video.top,
         copyLeft: copy.left,
         videoRight: video.right,
         overflow: document.documentElement.scrollWidth - innerWidth,
@@ -72,7 +72,7 @@ test("the compact hero includes the film, preserves the frame and fits desktop a
     expect(layout.ratio).toBeCloseTo(16 / 9, 1);
     expect(layout.overflow).toBeLessThanOrEqual(1);
     if (width <= 760)
-      expect(layout.copyTop).toBeGreaterThan(layout.videoBottom);
+      expect(layout.videoTop).toBeGreaterThan(layout.copyBottom);
     else expect(layout.copyLeft).toBeGreaterThan(layout.videoRight);
     if (width === 390 || width === 1440)
       await page.screenshot({

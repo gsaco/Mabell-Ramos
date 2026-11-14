@@ -14,12 +14,13 @@ body[data-page="productos/"] {
   background: var(--product-cream);
 }
 .product-container {
-  width: min(100%, 1256px);
+  width: min(100%, 1440px);
   margin-inline: auto;
-  padding-inline: 48px;
+  padding-inline: 36px;
 }
 body[data-page="productos/"] .header-inner {
-  max-width: 1256px;
+  max-width: 1440px;
+  padding-inline: 36px;
 }
 body[data-page="productos/"] .site-header {
   background: #fcf8f1f5;
@@ -39,15 +40,6 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   color: var(--product-cream);
   background: #512640;
 }
-.product-hero-copy.page-intro {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  grid-column: 1 / -1;
-  padding: 0;
-  margin: 0;
-  max-width: none;
-}
 .product-hero .eyebrow {
   margin: 0 0 10px;
   color: #e8cee0;
@@ -57,18 +49,18 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
 .product-hero h1 {
   color: var(--product-cream);
   font:
-    600 clamp(36px, 4vw, 52px)/1.05 Bodoni,
+    600 clamp(38px, 4vw, 56px)/1.06 Bodoni,
     Georgia,
     serif;
   letter-spacing: -1px;
   margin: 0;
 }
 .product-hero-lead {
-  margin: 12px 0 20px;
+  margin: 18px 0 24px;
   color: #e8d6e2;
-  font-size: 15px;
-  line-height: 1.6;
-  max-width: 330px;
+  font-size: 16px;
+  line-height: 1.65;
+  max-width: 460px;
 }
 .product-hero-actions {
   display: flex;
@@ -97,12 +89,16 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
 }
 .product-story-inner {
   display: grid;
-  grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas: "media copy";
   align-items: center;
-  gap: 20px 64px;
-  padding-block: 24px 28px;
+  gap: 56px;
+  padding-block: 28px;
 }
 .product-story-media {
+  grid-area: media;
+  width: 100%;
+  max-width: 600px;
   position: relative;
   min-width: 0;
   aspect-ratio: 16 / 9;
@@ -170,14 +166,9 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   font-size: 13px;
   font-variant-numeric: tabular-nums;
 }
-.product-story-copy h2 {
-  color: var(--product-cream);
-  font:
-    600 30px/1.1 Bodoni,
-    Georgia,
-    serif;
-  letter-spacing: -0.3px;
-  margin: 0;
+.product-story-copy {
+  grid-area: copy;
+  max-width: 600px;
 }
 .story-play-icon {
   flex: 0 0 auto;
@@ -190,19 +181,6 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   margin: 16px 0 0;
   line-height: 1.5;
 }
-.story-credit {
-  margin-top: 22px;
-  width: 230px;
-  max-width: 100%;
-}
-.story-credit img {
-  display: block;
-  width: 100%;
-  height: auto;
-  /* The film's actual closing mark, displayed in light ink without a white tile. */
-  filter: grayscale(1) invert(1);
-  mix-blend-mode: screen;
-}
 .product-story [hidden] {
   display: none;
 }
@@ -214,11 +192,8 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
 }
 @media (max-width: 1000px) {
   .product-story-inner {
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 24px 30px;
-  }
-  .product-story-copy h2 {
-    font-size: 27px;
   }
   .product-button-light {
     padding: 12px 18px;
@@ -227,14 +202,19 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   }
 }
 @media (max-width: 760px) {
+  body[data-page="productos/"] .header-inner {
+    padding-inline: 20px;
+  }
   .product-story-inner {
     grid-template-columns: 1fr;
-    gap: 18px;
+    grid-template-areas: "copy" "media";
+    gap: 24px;
     padding-block: 22px 24px;
   }
   .product-story-media {
     border-radius: 13px;
-    width: min(100%, 440px);
+    width: 100%;
+    max-width: none;
   }
   .product-hero h1 {
     font-size: clamp(35px, 8.5vw, 48px);
@@ -246,10 +226,6 @@ body[data-page="productos/"] :is(a, button, summary):focus-visible {
   }
   .product-hero-actions {
     gap: 16px;
-  }
-  .story-credit {
-    width: 190px;
-    margin-top: 18px;
   }
   .story-poster-play {
     padding: 14px;
@@ -864,23 +840,5 @@ body[data-page="productos/"] .site-header,
   .product-order-actions .product-instagram {
     width: auto;
     justify-content: center;
-  }
-}
-
-.hero-brand-logo {
-  width: 76px;
-  height: 76px;
-  flex: 0 0 auto;
-}
-@media (max-width: 760px) {
-  .hero-brand-logo {
-    width: 58px;
-    height: 58px;
-  }
-  .product-hero-copy.page-intro {
-    gap: 14px;
-  }
-  .product-hero h1 {
-    font-size: clamp(32px, 8vw, 44px);
   }
 }
